@@ -1,44 +1,50 @@
 {
-  "title": "The United States of Abortion Mazes",
-  "description": "To illustrate how difficult it is to get abortion care in the United States, we built a maze for each state where the difficulty is calculated by the state’s abortion policies.",
-  "url": "https://pudding.cool/2024/10/abortion-mazes",
-  "keywords": "abortion, maze, health, health care, reproductive rights, womens rights, bodily autonomy, roe v. wade, dobbs, supreme court, pregnancy",
-  "byline": "By \u003Ca href=https://pudding.cool/author/jan-diehm/ target=_blank\u003EJan Diehm\u003C/a\u003E & \u003Ca href=https://pudding.cool/author/michelle-pera-mcghee/ target=_blank\u003EMichelle Pera-McGhee\u003C/a\u003E",
+  "title": "Análisis del crimen en Ecuador relacionado con la desaparición de personas",
+  "description": "De enero a septiembre del Año 2023, las autoridades policiales de Ecuador han registrado 5795 quejas, todas ellas relacionado con casos específicos de desapariciones de personas con un promedio de 21 casos por día. La gran mayoría de estos han sido Reportado por miembros de la familia, seres queridos y amigos. Hasta el 30 septiembre el 11% todavía se encuentran desaparecidos",
+  "url": "https://github.com/ccalobeto/missed-ec",
+  "keywords": "Ecuador, crime, missing people, human rights",
+  "byline": "Elaborado por \u003Ca href=https://carlosleon.dev target=_blank\u003ECarlos León\u003C/a\u003E",
   "body": [
     {
-      "section": "intro",
+      "section": "charts",
       "content": [
         {
-          "type": "Scrollytelling",
+          "type": "donut-chart",
           "value": {
             "steps": [
               {
                 "type": "text",
-                "value": "In 1973, \u003Ci\u003ERoe v. Wade\u003C/i\u003E granted a nationwide right to abortion and helped create a \u003Cstrong\u003Epath to access.\u003C/strong\u003E"
+                "value": "<b>Tipología.</b> Del total de desapariciones, el <b> 6.6% </b> es <span> forzosa </span> o con signos de criminalidad, una tasa muy alta comparada como España(1%)."
               },
               {
                 "type": "text",
-                "value": "But, abortion access has \u003Cstrong\u003Erarely been a straight line\u003C/strong\u003E — it’s full of twists, turns, and roadblocks."
+                "value": "<b>Género.</b> Más del <b>58%</b> de las desapariciones reportadas en el 2024 son <span>mujeres</span>."
+              }
+            ]
+          }
+        },
+        {
+          "type": "bar-chart",
+          "value": {
+            "steps": [
+              {
+                "type": "text",
+                "value": "<b>Categoría.</b> Los <span> Problemas familiares </span> son la causa de más común con el <b> 50% </b>de las desapariciones."
               },
               {
                 "type": "text",
-                "value": "And these barriers have only gotten more complicated since the US Supreme Court \u003Cstrong\u003Egave states the power to ban abortion\u003C/strong\u003E in 2022’s \u003Ci\u003EDobbs\u003C/i\u003E ruling."
-              },
+                "value": "<b>Grupos de Edad.</b> El <b>44%</b> de las desapariciones corresponden a menores entre 13 y 17 años."
+              }
+            ]
+          }
+        },
+        {
+          "type": "choropleth-map",
+          "value": {
+            "steps": [
               {
                 "type": "text",
-                "value": "While \u003Cstrong\u003E13 states completely outlawed abortion,\u003C/strong\u003E with many additional states dismantling access in other ways…"
-              },
-              {
-                "type": "text",
-                "value": "…other states have moved to strengthen their protections, creating a \u003Cstrong\u003Ecomplicated patchwork of laws\u003C/strong\u003E across the country."
-              },
-              {
-                "type": "text",
-                "value": "To illustrate how difficult it is to get abortion care, \u003Cstrong\u003Ewe built a maze for each state\u003C/strong\u003E where the difficulty is calculated by the state’s abortion policies."
-              },
-              {
-                "type": "text",
-                "value": "This is..."
+                "value": "<b>Desapariciones Relativas por Cantón</b>. Teniendo en cuenta el tamaño de la población, los cantones con mayores desapariciones son <b>Paquisha</b> y <b>Morona</b>."
               }
             ]
           }
@@ -46,42 +52,11 @@
       ]
     },
     {
-      "section": "pick",
+      "section": "conclusion",
       "content": [
         {
-          "type": "Pick",
-          "value": {
-            "hed": "To help you navigate the mazes we've highlighted \u003Cstrong\u003E6 individual abortion stories.\u003C/strong\u003E",
-            "sub": "These stories were sourced from news reports, but some identifying characteristics have been changed.",
-            "directionsA": "Pick a story",
-            "directionsB": "See all mazes",
-            "stories": [
-              {
-                "id": "tx",
-                "age": "38"
-              },
-              {
-                "id": "ca",
-                "age": "25"
-              },
-              {
-                "id": "tn",
-                "age": "32"
-              },
-              {
-                "id": "fl",
-                "age": "33"
-              },
-              {
-                "id": "oh",
-                "age": "9"
-              },
-              {
-                "id": "mi",
-                "age": "17"
-              }
-            ]
-          }
+          "type": "text",
+          "value": "El presente análisis nos lleva a la conclusión que la población más vulnerable a ser secuestrada por bandas criminales son mujeres con problemas familiares entre 13-17 años"
         }
       ]
     },
