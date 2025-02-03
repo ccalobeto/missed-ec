@@ -1,11 +1,21 @@
 <script>
 	import { getContext } from "svelte";
+	import Missing from "$components/Missing.svelte";
 	import Footer from "$components/Footer.svelte";
 
-	// const copy = getContext("copy");
-	// const data = getContext("data");
+	const copy = getContext("copy");
 </script>
 
-<svelte:boundary onerror={(e) => console.error(e)}>
-	<!-- <Footer recirc={true} /> -->
-</svelte:boundary>
+<Missing {copy} />
+
+<Footer />
+
+<style>
+	.text-blocks {
+		max-width: 600px;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 15px;
+		margin-bottom: 15px;
+	}
+</style>

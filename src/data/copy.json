@@ -1,23 +1,122 @@
 {
-	"meta": { "title": "Title TK", "description": "Description tk." },
-	"body": [
-		{
-			"section": "intro",
-			"content": [
-				{ "type": "h4", "value": "An h4 element with no attributes" },
-				{
-					"type": "text",
-					"value": "Some random text here, followed by an img tag."
-				},
-				{
-					"type": "img",
-					"value": { "src": "../assets/demo/test.jpg", "alt": "A cat" }
-				},
-				{
-					"type": "Test",
-					"value": { "label": "I’m a custom component!", "value": "50" }
-				}
-			]
-		}
-	]
+  "title": "The United States of Abortion Mazes",
+  "description": "To illustrate how difficult it is to get abortion care in the United States, we built a maze for each state where the difficulty is calculated by the state’s abortion policies.",
+  "url": "https://pudding.cool/2024/10/abortion-mazes",
+  "keywords": "abortion, maze, health, health care, reproductive rights, womens rights, bodily autonomy, roe v. wade, dobbs, supreme court, pregnancy",
+  "byline": "By \u003Ca href=https://pudding.cool/author/jan-diehm/ target=_blank\u003EJan Diehm\u003C/a\u003E & \u003Ca href=https://pudding.cool/author/michelle-pera-mcghee/ target=_blank\u003EMichelle Pera-McGhee\u003C/a\u003E",
+  "body": [
+    {
+      "section": "intro",
+      "content": [
+        {
+          "type": "Scrollytelling",
+          "value": {
+            "steps": [
+              {
+                "type": "text",
+                "value": "In 1973, \u003Ci\u003ERoe v. Wade\u003C/i\u003E granted a nationwide right to abortion and helped create a \u003Cstrong\u003Epath to access.\u003C/strong\u003E"
+              },
+              {
+                "type": "text",
+                "value": "But, abortion access has \u003Cstrong\u003Erarely been a straight line\u003C/strong\u003E — it’s full of twists, turns, and roadblocks."
+              },
+              {
+                "type": "text",
+                "value": "And these barriers have only gotten more complicated since the US Supreme Court \u003Cstrong\u003Egave states the power to ban abortion\u003C/strong\u003E in 2022’s \u003Ci\u003EDobbs\u003C/i\u003E ruling."
+              },
+              {
+                "type": "text",
+                "value": "While \u003Cstrong\u003E13 states completely outlawed abortion,\u003C/strong\u003E with many additional states dismantling access in other ways…"
+              },
+              {
+                "type": "text",
+                "value": "…other states have moved to strengthen their protections, creating a \u003Cstrong\u003Ecomplicated patchwork of laws\u003C/strong\u003E across the country."
+              },
+              {
+                "type": "text",
+                "value": "To illustrate how difficult it is to get abortion care, \u003Cstrong\u003Ewe built a maze for each state\u003C/strong\u003E where the difficulty is calculated by the state’s abortion policies."
+              },
+              {
+                "type": "text",
+                "value": "This is..."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "section": "pick",
+      "content": [
+        {
+          "type": "Pick",
+          "value": {
+            "hed": "To help you navigate the mazes we've highlighted \u003Cstrong\u003E6 individual abortion stories.\u003C/strong\u003E",
+            "sub": "These stories were sourced from news reports, but some identifying characteristics have been changed.",
+            "directionsA": "Pick a story",
+            "directionsB": "See all mazes",
+            "stories": [
+              {
+                "id": "tx",
+                "age": "38"
+              },
+              {
+                "id": "ca",
+                "age": "25"
+              },
+              {
+                "id": "tn",
+                "age": "32"
+              },
+              {
+                "id": "fl",
+                "age": "33"
+              },
+              {
+                "id": "oh",
+                "age": "9"
+              },
+              {
+                "id": "mi",
+                "age": "17"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "section": "methodology",
+      "content": [
+        {
+          "type": "Methodology",
+          "value": {
+            "title": "Methodology",
+            "content": [
+              {
+                "type": "text",
+                "value": "The six personal stories included in this piece from “Ava”, “Billie”, “Courtney”, “Nicki”, “Margot”, and “Simone” were sourced from actual news reports, including reporting by \u003Ca href=https://www.cnn.com/\u003ECNN\u003C/a\u003E, \u003Ca href=https://www.indystar.com/\u003EThe Indianapolis Star\u003C/a\u003E, \u003Ca href=https://www.michiganpublic.org/\u003EMichigan Public Radio\u003C/a\u003E, \u003Ca href=https://www.propublica.org/\u003EPropublica\u003C/a\u003E, \u003Ca href=https://www.nytimes.com/\u003EThe New York Times\u003C/a\u003E, \u003Ca href=https://19thnews.org/\u003EThe 19th\u003C/a\u003E, \u003Ca href=https://www.tennessean.com/\u003EThe Tennessean\u003C/a\u003E, \u003Ca href=https://www.tpr.org/\u003ETexas Public Radio\u003C/a\u003E, and \u003Ca href=https://www.washingtonpost.com/\u003EThe Washington Post\u003C/a\u003E. Sometimes details were combined from multiple true stories to create a full narrative. Names, ages, and states were altered to protect the privacy and anonymity of the individuals. The illustrations for these stories were done by \u003Ca href=https://mariascherlies.com/\u003EMaria Scherlies\u003C/a\u003E."
+              },
+              {
+                "type": "text",
+                "value": "To calculate the complexity of each state maze, 28 state-level data points from the \u003Ca href=https://www.guttmacher.org/\u003EGuttmacher Institute\u003C/a\u003E were collected, normalized, weighted, and combined to produce a complexity score. Abortion bans were weighted at 10, with ban exceptions and constitutional measures weighted at 5. Other policies and laws aimed at limiting abortion access were weighted at 2. Other reproductive health policies, like sexual education and contraception access, were weighted at 1."
+              },
+              {
+                "type": "text",
+                "value": "Our complexity calculations were last updated on October 17, 2024 and represent a snapshot in time. The mazes may not represent the current ever-evolving abortion landscape in each state due to ongoing legal challenges, court rulings, and new legislation."
+              },
+              {
+                "type": "text",
+                "value": "Mazes were generated using a depth first search algorithm, with a size and difficulty that matched the complexity score."
+              },
+              {
+                "type": "text",
+                "value": "The full list of data points, sources, and when they were last updated by Guttmacher Institute is below."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
 }
