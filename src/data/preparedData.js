@@ -1,5 +1,5 @@
 import data from '$data/summaries.json';
-import topoFile from '$data/ecuador-tm-50k.json';
+import topoFile from '$data/support/ecuador-tm-50k.json';
 
 const DISSAPEARENCE_YEAR = 2023;
 const filteredData = data[5].data.filter(d => {

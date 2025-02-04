@@ -9,7 +9,7 @@
 	import Tooltip from "$components/missing/_components/Tooltip.html.svelte";
 
 	import { stateData } from "$data/preparedData.js";
-	import ec from "$data/ecuador-tm-50k.json";
+	import ec from "$data/support/ecuador-tm-50k.json";
 
 	/* map plot  */
 	const colorKey = "myValue";
