@@ -41,6 +41,7 @@
 	},
 	"browserslist": "> 0.5%, last 4 versions, not ie <= 11, not ie_mob <= 11",
 	"dependencies": {
-		"layercake": "^8.4.2"
+		"layercake": "^8.4.2",
+		"topojson-client": "^3.1.0"
 	}
 }
