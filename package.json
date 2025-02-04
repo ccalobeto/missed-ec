@@ -8,7 +8,10 @@
 		"build": "vite build",
 		"preview": "vite preview",
 		"lint": "prettier --check --plugin-search-dir=. .",
-		"format": "prettier --write --plugin-search-dir=. ."
+		"format": "prettier --write --plugin-search-dir=. .",
+		"python:dependencies": "pip install --upgrade pip && pip install -r requirements.txt",
+		"data:generate": "python ./tasks/generate-data.py",
+		"data:summary": "python ./tasks/summarize-data.py"
 	},
 	"devDependencies": {
 		"@lucide/svelte": "^0.474.0-rc.0",
