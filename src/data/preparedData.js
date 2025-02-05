@@ -6,11 +6,40 @@ const filteredData = data[5].data.filter(d => {
   return 'disappearance_year' in d && d.disappearance_year === DISSAPEARENCE_YEAR;
 });
 
+const kpisForCharts = {
+  'bar': ['category', 'age_range'],
+  'donut': ['tipology', 'sex']
+}
+
+export const dataLookupForCharts = (keyChart) => {
+
+  const dataLookup = new Map()
+  const filteredBarData = data.filter(d => {
+    return kpisForCharts[keyChart].includes(d.kpi);
+  }).map(d => {
+    return {
+      kpi: d.kpi,
+      data: d.data.map(d => {
+        return {
+          cardinality: d.cardinality,
+          percentage: Number.parseFloat(d.percentage.toFixed(1)),
+        };
+      })
+    }
+  })
+
+  filteredBarData.forEach(d => {
+    dataLookup.set(d.kpi, d.data);
+  });
+  return dataLookup
+
+}
+
 export const categories = data[3].data.map(d => {
   if ('cardinality' in d) {
     return {
       cardinality: d.cardinality,
-      percentage: d.percentage
+      percentage: Number.parseFloat(d.percentage.toFixed(1)),
     };
   } else {
     return null;
@@ -47,4 +76,4 @@ export const stateData = () => {
 
   return populateData(mapData)
 }
-console.log(stateData().length);
+console.log(`data from ${stateData().length} cantons`);
