@@ -11,23 +11,28 @@
 	 * optional params with defaults
 	 * <Scrolly root={null} top={0} bottom={0} increments={100}>
 	 */
-	
-	let {
-		root = null,
-		top = 0,
-		bottom = 0,
-		increments = 100,
-		value = $bindable(undefined),
-		children
-	} = $props();
+	import { onMount } from "svelte";
+	export let root = null;
+	export let top = 0;
+	export let bottom = 0;
+	export let increments = 100;
+	export let value = undefined;
 
-	let steps = [];
-	let threshold = [];
+	const steps = [];
+	const threshold = [];
+
 	let nodes = [];
 	let intersectionObservers = [];
-	let container = undefined;
+	let container;
 
-	function mostInView () {
+	$: top, bottom, update();
+
+	const update = () => {
+		if (!nodes.length) return;
+		nodes.forEach(createObserver);
+	};
+
+	const mostInView = () => {
 		let maxRatio = 0;
 		let maxIndex = 0;
 		for (let i = 0; i < steps.length; i++) {
@@ -41,7 +46,7 @@
 		else value = undefined;
 	};
 
-	function createObserver(node, index) {
+	const createObserver = (node, index) => {
 		const handleIntersect = (e) => {
 			const intersecting = e[0].isIntersecting;
 			const ratio = e[0].intersectionRatio;
@@ -59,29 +64,17 @@
 		const io = new IntersectionObserver(handleIntersect, options);
 		io.observe(node);
 		intersectionObservers[index] = io;
-	}
+	};
 
-	function update() {
-		if (!nodes.length) return;
-		nodes.forEach(createObserver);
-	}
-
-	$effect(() => {
+	onMount(() => {
 		for (let i = 0; i < increments + 1; i++) {
 			threshold.push(i / increments);
 		}
 		nodes = container.querySelectorAll(":scope > *:not(iframe)");
 		update();
 	});
-
-	$effect(() => {
-		top;
-		bottom;
-		update();
-	});
-
 </script>
 
 <div bind:this={container}>
-	{@render children?.()}
+	<slot />
 </div>
