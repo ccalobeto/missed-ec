@@ -1,12 +1,12 @@
 <script>
 	import { getContext } from "svelte";
-	import Missing from "$components/Missing.svelte";
 	import Footer from "$components/Footer.svelte";
+	import ScrollyTelling from "./ScrollyTelling.svelte";
 
 	const copy = getContext("copy");
 </script>
 
-<Missing {copy} />
+<ScrollyTelling {copy} />
 
 <Footer />
 
