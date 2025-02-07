@@ -8,17 +8,17 @@
 </script>
 
 <div class="charts">
-	{console.log("Charts: step => ", step)}
+	<!-- {console.log("Charts: step => ", step)} -->
 	{#each scrollyTeller as item, index}
 		<div class="type-{item['type']}">
 			{#if item.type === "donut-chart"}
 				<DonutChart {step} />
 			{/if}
 			{#if item.type === "bar-chart"}
-				<!-- <BarChart {step} /> -->
+				<BarChart {step} />
 			{/if}
 			{#if item.type === "choropleth-map"}
-				<!-- <ChoroplethMap {step} /> -->
+				<ChoroplethMap {step} />
 			{/if}
 		</div>
 	{/each}
