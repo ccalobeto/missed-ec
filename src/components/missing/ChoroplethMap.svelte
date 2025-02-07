@@ -42,8 +42,6 @@
 	const colors = ["#ffdecc", "#ffc09c", "#ffa06b", "#ff7a33"];
 
 	const addCommas = format(",");
-
-	console.log(flatData);
 </script>
 
 <h1>This is a choropleth map</h1>
