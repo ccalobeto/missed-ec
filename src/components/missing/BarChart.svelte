@@ -21,19 +21,15 @@
 	$: {
 		if (step == 2) {
 			data = dataLookupForBarChart.get("category");
-			console.log("data => ", data);
 		}
 		if (step == 3) {
 			data = dataLookupForBarChart.get("age_range");
 		}
 	}
-
-	console.log("BarChart: dataLookupForBarChart => ", dataLookupForBarChart);
 </script>
 
-<!-- <h1>This is a bar Chart</h1> -->
 <div class="scrolly-chart-container">
-	{console.log("BarChart: step => ", step)}
+	<!-- {console.log("BarChart: step => ", step)} -->
 	<div class="bar-container">
 		<LayerCake
 			padding={{ bottom: 20, left: 100 }}
