@@ -8,7 +8,7 @@
 
 <ScrollyTelling {copy} />
 
-<Footer />
+<!-- <Footer /> -->
 
 <style>
 	.text-blocks {

@@ -5,7 +5,7 @@
 	export let children;
 </script>
 
-<Header />
+<!-- <Header /> -->
 <main id="content">
 	{@render children?.()}
 </main>
