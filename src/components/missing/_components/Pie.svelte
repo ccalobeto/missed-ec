@@ -59,14 +59,10 @@
 	$: arcLabel = (arc() as any)
 		.innerRadius(labelRadius)
 		.outerRadius(labelRadius);
-
-	console.log("Pie: pieArcs => ", pieArcs);
 </script>
 
 <g transform="translate({$width / 2}, {$height / 2})">
 	{#each pieArcs as pieArc, i}
-		{console.log("Pie: row => ", pieArc.data)}
-		{console.log("Pie: x => ", $x(pieArc.data))}
 		<!-- Draw a the paths -->
 		<path
 			class="path-line"
