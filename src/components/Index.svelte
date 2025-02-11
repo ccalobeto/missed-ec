@@ -6,11 +6,19 @@
 	const copy = getContext("copy");
 </script>
 
+<h2 class="title">{copy.title}</h2>
+<p class="text-blocks">{@html copy.description}</p>
+
 <ScrollyTelling {copy} />
 
 <!-- <Footer /> -->
 
 <style>
+	.title {
+		max-width: 14em;
+		margin: 0 auto;
+		padding: 32px 0;
+	}
 	.text-blocks {
 		max-width: 600px;
 		margin-left: auto;

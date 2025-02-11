@@ -9,8 +9,14 @@
 		.content;
 	const steps = scrollyTeller.map((d) => d.value.steps).flat();
 
-	console.log("ScrollyTelling: storyTeller => ", scrollyTeller);
+	$: bylineVisible = value === 0;
+
+	// console.log("ScrollyTelling: storyTeller => ", scrollyTeller);
 </script>
+
+<div class="byline" class:visible={bylineVisible}>
+	<span class="text">{@html copy.byline}</span>
+</div>
 
 <section>
 	<div class="section-container">
@@ -87,6 +93,22 @@
 	.steps-container {
 		flex: 1 1 40%;
 		z-index: 10;
+	}
+
+	.byline {
+		opacity: 0;
+		transition: opacity calc(var(--1s) * 0.5);
+		position: fixed;
+		bottom: 4rem;
+		left: 2rem;
+		width: 350px;
+	}
+	.byline.visible {
+		opacity: 1;
+	}
+	.text {
+		display: block;
+		color: var(--color-fg);
 	}
 
 	/* Comment out the following line to always make it 'text-on-top' */

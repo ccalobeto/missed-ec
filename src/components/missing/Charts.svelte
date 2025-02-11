@@ -14,10 +14,10 @@
 			{#if item.type === "donut-chart"}
 				<DonutChart {step} />
 			{/if}
-			{#if item.type === "bar-chart"}
+			{#if item.type === "bar-chart" && step === index}
 				<BarChart {step} />
 			{/if}
-			{#if item.type === "choropleth-map"}
+			{#if item.type === "choropleth-map" && step === index}
 				<ChoroplethMap {step} />
 			{/if}
 		</div>
