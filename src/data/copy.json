@@ -1,9 +1,9 @@
 {
-  "title": "Análisis del crimen en Ecuador relacionado con la desaparición de personas",
-  "description": "De enero a septiembre del Año 2023, las autoridades policiales de Ecuador han registrado 5795 quejas, todas ellas relacionado con casos específicos de desapariciones de personas con un promedio de 21 casos por día. La gran mayoría de estos han sido Reportado por miembros de la familia, seres queridos y amigos. Hasta el 30 septiembre el 11% todavía se encuentran desaparecidos",
+  "title": "Análisis histórico sobre las desapariciones en el Ecuador",
+  "description": "En Ecuador, el tema de las personas desaparecidas ha atraído una atención significativa debido a un número preocupante de desapariciones, particularmente entre las niñas. Informes recientes indican que un gran número de niñas entre las edades de 7 y 14 años han sido reportadas como desaparecidas, lo que lleva a una crisis nacional. El Ministerio del Interior ha publicado informes anuales para arrojar luz sobre las cifras de desapariciones registradas, con el objetivo de dar visibilidad a este problema apremiante. Los esfuerzos para localizar a las personas desaparecidas han sido apoyados por avances en tecnología y ciencia forense; como la tipificación de ADN a través del análisis de restos de huesos y dientes. Además, se han desarrollado sistemas de geolocalización gubernamental para ayudar en la ubicación rápida de las personas desaparecidas, especialmente en áreas remotas. Estas iniciativas, combinadas con una mayor conciencia pública e informes gubernamentales, son pasos cruciales para abordar el tema de las personas desaparecidas en Ecuador.",
   "url": "https://github.com/ccalobeto/missed-ec",
   "keywords": "Ecuador, crime, missing people, human rights",
-  "byline": "Elaborado por \u003Ca href=https://carlosleon.dev target=_blank\u003ECarlos León\u003C/a\u003E",
+  "byline": "Elaborado por \u003Ca href=https://www.carlosleon.dev target=_blank\u003ECarlos León\u003C/a\u003E",
   "body": [
     {
       "section": "charts",
