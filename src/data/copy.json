@@ -1,97 +1,60 @@
 {
-  "title": "Análisis histórico sobre las desapariciones en el Ecuador",
-  "description": "En Ecuador, el tema de las personas desaparecidas ha atraído una atención significativa debido a un número preocupante de desapariciones, particularmente entre las niñas. Informes recientes indican que un gran número de niñas entre las edades de 7 y 14 años han sido reportadas como desaparecidas, lo que lleva a una crisis nacional. El Ministerio del Interior ha publicado informes anuales para arrojar luz sobre las cifras de desapariciones registradas, con el objetivo de dar visibilidad a este problema apremiante. Los esfuerzos para localizar a las personas desaparecidas han sido apoyados por avances en tecnología y ciencia forense; como la tipificación de ADN a través del análisis de restos de huesos y dientes. Además, se han desarrollado sistemas de geolocalización gubernamental para ayudar en la ubicación rápida de las personas desaparecidas, especialmente en áreas remotas. Estas iniciativas, combinadas con una mayor conciencia pública e informes gubernamentales, son pasos cruciales para abordar el tema de las personas desaparecidas en Ecuador.",
+  "title": "Análisis sobre las desapariciones en el Ecuador",
+  "description": "El uso de enfoques, autoridades y organizaciones basadas en datos apuntan a mejorar la prevención, mejorar los tiempos de respuesta y apoyar a las familias afectadas.",
   "url": "https://github.com/ccalobeto/missed-ec",
   "keywords": "Ecuador, crime, missing people, human rights",
   "byline": "Elaborado por \u003Ca href=https://www.carlosleon.dev target=_blank\u003ECarlos León\u003C/a\u003E",
   "body": [
     {
-      "section": "charts",
-      "content": [
-        {
-          "type": "donut-chart",
-          "value": {
-            "steps": [
-              {
-                "type": "text",
-                "value": "<b>Tipología.</b> Del total de desapariciones, el <b> 6.6% </b> es <span> forzosa </span> o con signos de criminalidad, una tasa muy alta comparada como España(1%)."
-              },
-              {
-                "type": "text",
-                "value": "<b>Género.</b> Más del <b>58%</b> de las desapariciones reportadas en el 2024 son <span>mujeres</span>."
-              }
-            ]
-          }
-        },
-        {
-          "type": "bar-chart",
-          "value": {
-            "steps": [
-              {
-                "type": "text",
-                "value": "<b>Categoría.</b> Los <span> Problemas familiares </span> son la causa de más común con el <b> 50% </b>de las desapariciones."
-              },
-              {
-                "type": "text",
-                "value": "<b>Grupos de Edad.</b> El <b>44%</b> de las desapariciones corresponden a menores entre 13 y 17 años."
-              }
-            ]
-          }
-        },
-        {
-          "type": "choropleth-map",
-          "value": {
-            "steps": [
-              {
-                "type": "text",
-                "value": "<b>Desapariciones Relativas por Cantón</b>. Teniendo en cuenta el tamaño de la población, los cantones con mayores desapariciones son <b>Paquisha</b> y <b>Morona</b>."
-              }
-            ]
-          }
-        }
-      ]
+      "type": "text",
+      "value": "En Ecuador, el tema de las personas desaparecidas ha atraído una atención significativa debido a un número preocupante de desapariciones, particularmente entre las niñas. "
     },
     {
-      "section": "conclusion",
-      "content": [
-        {
-          "type": "text",
-          "value": "El presente análisis nos lleva a la conclusión que la población más vulnerable a ser secuestrada por bandas criminales son mujeres con problemas familiares entre 13-17 años"
-        }
-      ]
+      "type": "text",
+      "value": "Informes recientes indican que un gran número de niñas entre las edades de 7 y 14 años han sido reportadas como desaparecidas, lo que lleva a una crisis nacional."
     },
     {
-      "section": "methodology",
-      "content": [
-        {
-          "type": "Methodology",
-          "value": {
-            "title": "Methodology",
-            "content": [
-              {
-                "type": "text",
-                "value": "The six personal stories included in this piece from “Ava”, “Billie”, “Courtney”, “Nicki”, “Margot”, and “Simone” were sourced from actual news reports, including reporting by \u003Ca href=https://www.cnn.com/\u003ECNN\u003C/a\u003E, \u003Ca href=https://www.indystar.com/\u003EThe Indianapolis Star\u003C/a\u003E, \u003Ca href=https://www.michiganpublic.org/\u003EMichigan Public Radio\u003C/a\u003E, \u003Ca href=https://www.propublica.org/\u003EPropublica\u003C/a\u003E, \u003Ca href=https://www.nytimes.com/\u003EThe New York Times\u003C/a\u003E, \u003Ca href=https://19thnews.org/\u003EThe 19th\u003C/a\u003E, \u003Ca href=https://www.tennessean.com/\u003EThe Tennessean\u003C/a\u003E, \u003Ca href=https://www.tpr.org/\u003ETexas Public Radio\u003C/a\u003E, and \u003Ca href=https://www.washingtonpost.com/\u003EThe Washington Post\u003C/a\u003E. Sometimes details were combined from multiple true stories to create a full narrative. Names, ages, and states were altered to protect the privacy and anonymity of the individuals. The illustrations for these stories were done by \u003Ca href=https://mariascherlies.com/\u003EMaria Scherlies\u003C/a\u003E."
-              },
-              {
-                "type": "text",
-                "value": "To calculate the complexity of each state maze, 28 state-level data points from the \u003Ca href=https://www.guttmacher.org/\u003EGuttmacher Institute\u003C/a\u003E were collected, normalized, weighted, and combined to produce a complexity score. Abortion bans were weighted at 10, with ban exceptions and constitutional measures weighted at 5. Other policies and laws aimed at limiting abortion access were weighted at 2. Other reproductive health policies, like sexual education and contraception access, were weighted at 1."
-              },
-              {
-                "type": "text",
-                "value": "Our complexity calculations were last updated on October 17, 2024 and represent a snapshot in time. The mazes may not represent the current ever-evolving abortion landscape in each state due to ongoing legal challenges, court rulings, and new legislation."
-              },
-              {
-                "type": "text",
-                "value": "Mazes were generated using a depth first search algorithm, with a size and difficulty that matched the complexity score."
-              },
-              {
-                "type": "text",
-                "value": "The full list of data points, sources, and when they were last updated by Guttmacher Institute is below."
-              }
-            ]
-          }
-        }
-      ]
+      "type": "text",
+      "value": "El Ministerio del Interior ha publicado informes anuales para arrojar luz sobre las cifras de desapariciones registradas, con el objetivo de dar visibilidad a este problema apremiante."
+    },
+    {
+      "type": "text",
+      "value": "Los esfuerzos para localizar a las personas desaparecidas han sido apoyados por avances en tecnología y ciencia forense; como la tipificación de ADN a través del análisis de restos de huesos y dientes. Además, se han desarrollado sistemas de geolocalización gubernamental para ayudar en la ubicación rápida de las personas desaparecidas, especialmente en áreas remotas."
+    },
+    {
+      "type": "text",
+      "value": "Estas iniciativas, combinadas con una mayor conciencia pública e informes gubernamentales, son pasos cruciales para abordar el tema de las personas desaparecidas en Ecuador."
+    },
+    {
+      "type": "donut-chart",
+      "value": {
+        "steps": [
+          "<b>Tipología.</b> Del total de desapariciones, el <b> 6.6% </b> es <span style=background-color:#598FBC> forzosa </span> o con signos de criminalidad, una tasa muy alta comparada como España(1%).",
+          "<b>Género.</b> Más del <b>58%</b> de las desapariciones reportadas en el 2024 son <span>mujeres</span>."
+        ]
+      }
+    },
+    {
+      "type": "bar-chart",
+      "value": {
+        "steps": [
+          "<b>Categoría.</b> Los <span> Problemas familiares </span> son la causa de más común con el <b> 50% </b>de las desapariciones.",
+          "<b>Grupos de Edad.</b> El <b>44%</b> de las desapariciones corresponden a menores entre 13 y 17 años."
+        ]
+      }
+    },
+    {
+      "type": "choropleth-map",
+      "value": {
+        "steps": [
+          "Los cantones con mayores desapariciones son <b>Guayas</b> y <b>Quito</b>.",
+          "Y considerando el tamaño de la población, los cantones con mayores desapariciones son <b>Paquisha</b> y <b>Morona</b>."
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "value": "El presente análisis nos lleva a la conclusión que la población más vulnerable a ser secuestrada por bandas criminales son mujeres con problemas familiares entre 13-17 años"
     }
   ]
 }
