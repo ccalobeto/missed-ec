@@ -11,11 +11,4 @@
 <!-- <Footer /> -->
 
 <style>
-	.text-blocks {
-		max-width: 600px;
-		margin-left: auto;
-		margin-right: auto;
-		margin-top: 15px;
-		margin-bottom: 15px;
-	}
 </style>
