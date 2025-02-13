@@ -77,12 +77,4 @@
 		padding: 16px;
 		white-space: pre-wrap;
 	}
-
-	button {
-		font-family: var(--mono);
-	}
-
-	span {
-		margin-left: 16px;
-	}
 </style>
