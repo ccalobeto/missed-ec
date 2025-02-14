@@ -57,7 +57,7 @@
 		<Scrolly bind:value>
 			{#each steps as step, i}
 				<div class="step" class:active={value === i}>
-					<div class="step-text">{@html step}</div>
+					<p>{@html step}</p>
 				</div>
 			{/each}
 		</Scrolly>
@@ -68,10 +68,14 @@
 	.chart-container {
 		width: 80%;
 		height: 250px;
-		margin: 25px auto;
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		position: sticky;
+		top: 4em;
 	}
 
-	#donut-chart {
+	#bar-chart {
 		padding-top: 30px;
 		padding-bottom: 30px;
 	}
@@ -80,25 +84,22 @@
 		position: relative;
 		z-index: 5;
 	}
+	.spacer {
+		height: 75vh;
+	}
 	.step {
-		height: 80vh;
-		background: none;
-		text-align: center;
-		width: 30%;
-		margin-left: auto;
-		margin-right: auto;
+		text-align: left;
+		z-index: 1000;
+		width: 350px;
+		margin: 60vh 0;
+		padding: 0 0 0 1.5rem;
+		pointer-events: none;
 	}
-
-	.chart-container {
-		display: block;
-		margin-left: auto;
-		margin-right: auto;
-		position: sticky;
-		top: 4em;
-	}
-
-	.step-text {
-		background-color: #333;
-		padding: 1rem;
+	.step p {
+		font-family: var(--serif);
+		padding: 0 2rem 0 0;
+		font-size: var(--32px);
+		pointer-events: auto;
+		position: relative;
 	}
 </style>

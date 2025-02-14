@@ -6,9 +6,15 @@
 	const copy = getContext("copy");
 </script>
 
-<Missed {copy} />
+<article>
+	<Missed {copy} />
+</article>
 
 <!-- <Footer /> -->
 
 <style>
+	article {
+		display: flex;
+		flex-direction: column;
+	}
 </style>

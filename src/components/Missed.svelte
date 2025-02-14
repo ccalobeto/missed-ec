@@ -7,8 +7,11 @@
 	export let copy;
 </script>
 
-<h2 class="title">{copy.title}</h2>
-<p class="text-blocks">{@html copy.description}</p>
+<section>
+	<h1>{copy.title}</h1>
+	<p>{@html copy.description}</p>
+	<img src="missing-child.jpg" alt="" />
+</section>
 
 <div class="charts">
 	<!-- {console.log("Charts: step => ", step)} -->
@@ -34,9 +37,37 @@
 </div>
 
 <style>
-	.title {
-		max-width: 14em;
-		margin: 0 auto;
-		padding: 32px 0;
+	section {
+		padding: 5px;
+		margin: 5px;
+		box-sizing: border-box;
+	}
+	section h1 {
+		font-family: var(--serif);
+		font-weight: 300;
+		font-size: var(--36px);
+		text-align: center;
+	}
+
+	section p {
+		font-size: var(--14px);
+		font-style: italic;
+		text-align: center;
+		max-width: 500px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	section img {
+		aspect-ratio: 1;
+		margin: auto;
+	}
+
+	.text-blocks {
+		font-family: var(--serif);
+		font-size: var(--20px);
+		max-width: 600px;
+		margin-left: auto;
+		margin-right: auto;
 	}
 </style>

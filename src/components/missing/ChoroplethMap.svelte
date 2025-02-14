@@ -44,8 +44,6 @@
 	const addCommas = format(",");
 </script>
 
-<h1>This is a choropleth map</h1>
-
 <div class="map-container">
 	<LayerCake
 		data={geojson}
