@@ -1,9 +1,10 @@
 {
-  "title": "Análisis sobre las desapariciones en el Ecuador",
-  "description": "El uso de enfoques, autoridades y organizaciones basadas en datos apuntan a mejorar la prevención, mejorar los tiempos de respuesta y apoyar a las familias afectadas.",
+  "title": "Análisis sobre la desaparición de personas en el Ecuador",
+  "description": "Una manera de usar los datos para entender el perfil de las personas desaparecidas en el Ecuador atraves de la visualización.",
   "url": "https://github.com/ccalobeto/missed-ec",
   "keywords": "Ecuador, crime, missing people, human rights",
-  "byline": "Elaborado por \u003Ca href=https://www.carlosleon.dev target=_blank\u003ECarlos León\u003C/a\u003E",
+  "byline": "Elaborado por <a href=https://www.carlosleon.dev target=_blank>Carlos León</a>",
+  "footer": "Un gráfico hecho en svelte y d3.js. <span> <a https://www.carlosleon.dev/blog/missed-in-ec target=_blank>Blog post</a> | <a href=https://github.com/ccalobeto/missed-ec target=_blank>GitHub</a> </span>.",
   "body": [
     {
       "type": "text",
@@ -23,14 +24,25 @@
     },
     {
       "type": "text",
-      "value": "Estas iniciativas, combinadas con una mayor conciencia pública e informes gubernamentales, son pasos cruciales para abordar el tema de las personas desaparecidas en Ecuador."
+      "value": "Estas iniciativas, combinadas con una mayor conciencia pública, la disposición de la información en la <a href=https://www.datosabiertos.gob.ec/dataset/personas-desaparecidas> plataforma de datos abiertos </a>  e informes gubernamentales, son pasos cruciales para abordar el tema de las personas desaparecidas en Ecuador."
+    },
+    {
+      "type": "text",
+      "value": "Y empezamos lo que nos dicen los datos históricos ..."
+    },
+    {
+      "type": "bar-chart",
+      "value": {
+        "steps": [
+          "En el periodo <b>2017-2024 </b> el acumulado de personas desaparecidas es de <b> 20,500 </b>, un aumento del <span style=background-color:#d7301f> 25% </span> con respecto al año 2017."
+        ]
+      }
     },
     {
       "type": "donut-chart",
       "value": {
         "steps": [
-          "<b>Tipología.</b> Del total de desapariciones, el <b> 6.6% </b> es <span style=background-color:#598FBC> forzosa </span> o con signos de criminalidad, una tasa muy alta comparada como España(1%).",
-          "<b>Género.</b> Más del <b>58%</b> de las desapariciones reportadas en el 2024 son <span>mujeres</span>."
+          "Más del <b>64%</b> de las desapariciones reportadas en el 2024 son <span style=background-color:#F88B9D80>mujeres</span>."
         ]
       }
     },
@@ -38,8 +50,23 @@
       "type": "bar-chart",
       "value": {
         "steps": [
-          "<b>Categoría.</b> Los <span> Problemas familiares </span> son la causa de más común con el <b> 50% </b>de las desapariciones.",
-          "<b>Grupos de Edad.</b> El <b>44%</b> de las desapariciones corresponden a menores entre 13 y 17 años."
+          "El <b>44%</b> de las desapariciones corresponden a <span style=background-color:#e41a1c> adolescentes</span> entre 13 y 17 años."
+        ]
+      }
+    },
+    {
+      "type": "donut-chart",
+      "value": {
+        "steps": [
+          "Del total de desapariciones, el <b> 4.6% </b> es <span style=background-color:#8F0DA480> forzosa</span> o con signos de criminalidad."
+        ]
+      }
+    },
+    {
+      "type": "bar-chart",
+      "value": {
+        "steps": [
+          "Los <span style=background-color:#8f0da4> Problemas familiares </span> son la causa de más común con más del <b> 55% </b>de las desapariciones."
         ]
       }
     },
@@ -48,13 +75,13 @@
       "value": {
         "steps": [
           "Los cantones con mayores desapariciones son <b>Guayas</b> y <b>Quito</b>.",
-          "Y considerando el tamaño de la población, los cantones con mayores desapariciones son <b>Paquisha</b> y <b>Morona</b>."
+          "... pero considerando el tamaño de la población, los cantones con mayores desapariciones son <b>Paquisha</b> y <b>Morona</b>."
         ]
       }
     },
     {
       "type": "text",
-      "value": "El presente análisis nos lleva a la conclusión que la población más vulnerable a ser secuestrada por bandas criminales son mujeres con problemas familiares entre 13-17 años"
+      "value": "El presente análisis nos lleva a la conclusión que la población más vulnerable a ser secuestrada por bandas criminales son <span style=background-color:#f0f921>mujeres adolescente con problemas familiares en los cantones de Paquisha y Morona.</span>"
     }
   ]
 }
