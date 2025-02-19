@@ -1,4 +1,6 @@
 <script>
+	import { quantize, interpolatePlasma } from "d3";
+
 	import { LayerCake, Svg } from "layercake";
 	import Pie from "$components/missing/_components/Pie.svelte";
 	import Scrolly from "$components/helpers/Scrolly.svelte";
@@ -8,6 +10,7 @@
 	export let steps;
 	let value;
 	let data;
+	let colors;
 
 	console.log("DonutChart: steps => ", steps);
 
@@ -25,9 +28,11 @@
 	$: {
 		if (value == 0) {
 			data = dataLookupForDonutChart.get("tipology");
+			colors = quantize((t) => interpolatePlasma(t * 0.7 + 0.3), data.length);
 		}
 		if (value == 1) {
 			data = dataLookupForDonutChart.get("sex");
+			colors = ["#8ECEFD", "#F88B9D"];
 		}
 	}
 
@@ -46,7 +51,7 @@
 			{data}
 		>
 			<Svg>
-				<Pie {innerRadius} {outerRadius} {padAngle} />
+				<Pie {innerRadius} {outerRadius} {padAngle} {colors} />
 			</Svg>
 		</LayerCake>
 	</div>
@@ -86,14 +91,13 @@
 
 	.scrolly-text-container {
 		position: relative;
-		z-index: 5;
+		z-index: 1;
 	}
 	.spacer {
 		height: 75vh;
 	}
 	.step {
 		text-align: left;
-		z-index: 1000;
 		width: 350px;
 		margin: 60vh 0;
 		padding: 0 0 0 1.5rem;

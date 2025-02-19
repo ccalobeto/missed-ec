@@ -4,7 +4,7 @@
  -->
 <script>
 	import { getContext } from "svelte";
-	import { quantize, interpolatePlasma, pie, arc } from "d3";
+	import { pie, arc } from "d3";
 
 	const { data, width, height, x, y } = getContext("LayerCake");
 
@@ -29,8 +29,11 @@
 	/**  @type {Number} [padAngle=0.312] Each outer circle's radius. */
 	export let padAngle = 0.312;
 
+	export let colors;
+
 	const labelPosition = 0.4; // the position of the label offset from center
 	const labelRadius = innerRadius * labelPosition + outerRadius * 0.6; //
+	const labelHeight = 350;
 	const fontSize = 13; // the font size of the x and y valuescenter radius of labels
 
 	// generate Data for pie
@@ -40,9 +43,9 @@
 
 	$: arcPath = arc().innerRadius(innerRadius).outerRadius(outerRadius);
 
-	$: colors = quantize((t) => interpolatePlasma(t * 0.7 + 0.3), $data.length);
-
-	$: arcLabel = arc().innerRadius(labelRadius).outerRadius(labelRadius);
+	$: arcLabel = arc()
+		.innerRadius((0.96 * labelHeight) / 2) // labelRadius
+		.outerRadius((0.96 * labelHeight) / 2);
 </script>
 
 <g transform="translate({$width / 2}, {$height / 2})">
@@ -61,9 +64,9 @@
 		<g text-anchor="middle" transform="translate({arcLabel.centroid(pieArc)})">
 			<text font-size={fontSize}>
 				<tspan font-weight="bold">{$y(pieArc.data)}</tspan>
-				<tspan x="0" dy="1.1em"
+				<tspan x="-.1em" dy="1.1em"
 					>{percent
-						? `${$x(pieArc.data).toFixed(2)}%`
+						? `${$x(pieArc.data).toFixed(1)}%`
 						: $x(pieArc.data).toLocaleString("en-US")}</tspan
 				>
 			</text>

@@ -13,6 +13,7 @@
 	export let steps;
 	let data;
 	let value;
+	let colors;
 
 	// set x and y, keys
 	const xKeyCat = "percentage";
@@ -27,6 +28,15 @@
 		}
 		if (value == 1) {
 			data = dataLookupForBarChart.get("age_range");
+			colors = [
+				"#e41a1c",
+				"#377eb8",
+				"#4daf4a",
+				"#984ea3",
+				"#ff7f00",
+				"#ffff33",
+				"#a65628"
+			];
 		}
 	}
 </script>
@@ -36,7 +46,7 @@
 		<!-- {console.log("BarChart: step => ", step)} -->
 		<div class="chart-container">
 			<LayerCake
-				padding={{ bottom: 20, left: 100 }}
+				padding={{ bottom: 20, left: 250 }}
 				x={xKeyCat}
 				y={yKeyCat}
 				yScale={scaleBand().paddingInner(0.05)}
@@ -44,9 +54,9 @@
 				{data}
 			>
 				<Svg>
-					<AxisX tickMarks baseline snapLabels />
+					<AxisX tickMarks baseline snapLabels gridlines={false} />
 					<AxisY tickMarks gridlines={false} />
-					<Bar />
+					<Bar {colors} />
 				</Svg>
 			</LayerCake>
 		</div>
@@ -89,7 +99,6 @@
 	}
 	.step {
 		text-align: left;
-		z-index: 1000;
 		width: 350px;
 		margin: 60vh 0;
 		padding: 0 0 0 1.5rem;
