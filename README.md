@@ -7,6 +7,7 @@ Choose your python virtual environment in your VS Code placed in the botton. In 
 
 ## Download CSV files
 Go to [Ecuador datos abiertos](https://www.datosabiertos.gob.ec/dataset/personas-desaparecidas), download the excel files and convert them to csv files. Be careful with ',' for decimals in google sheets. Move the converted files to `static/data/input`.
+Check support data cardinality if necessary.
 
 ## Executing scripts 
 Run these scripts
