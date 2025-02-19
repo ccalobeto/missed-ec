@@ -6,10 +6,16 @@
 	import { format } from "d3-format";
 
 	import MapSvg from "$components/missing/_components/Map.svg.svelte";
+	import Scrolly from "$components/helpers/Scrolly.svelte";
 	import Tooltip from "$components/missing/_components/Tooltip.html.svelte";
 
 	import { stateData } from "$data/preparedData.js";
 	import ec from "$data/support/ecuador-tm-50k.json";
+
+	export let steps;
+	export let index;
+
+	let value;
 
 	/* map plot  */
 	const colorKey = "myValue";
@@ -44,47 +50,92 @@
 	const addCommas = format(",");
 </script>
 
-<div class="map-container">
-	<LayerCake
-		data={geojson}
-		z={(d) => dataLookup.get(d[mapJoinKey])[colorKey]}
-		zScale={scaleQuantize()}
-		zRange={colors}
-		{flatData}
-	>
-		<Svg>
-			<MapSvg
-				{projection}
-				on:mousemove={(event) => (evt = hideTooltip = event)}
-				on:mouseout={() => (hideTooltip = true)}
-			/>
-		</Svg>
+<div id="choropleth-chart">
+	<div class="chart-container">
+		<LayerCake
+			data={geojson}
+			z={(d) => dataLookup.get(d[mapJoinKey])[colorKey]}
+			zScale={scaleQuantize()}
+			zRange={colors}
+			{flatData}
+		>
+			<Svg>
+				<MapSvg
+					{projection}
+					on:mousemove={(event) => (evt = hideTooltip = event)}
+					on:mouseout={() => (hideTooltip = true)}
+				/>
+			</Svg>
 
-		<Html pointerEvents={false}>
-			{#if hideTooltip !== true}
-				<Tooltip {evt} let:detail>
-					<!-- For the tooltip, do another data join because the hover event only has the data from the geography data -->
-					{@const tooltipData = {
-						...detail.props,
-						...dataLookup.get(detail.props[mapJoinKey])
-					}}
-					{#each Object.entries(tooltipData) as [key, value]}
-						{@const keyCapitalized = key.replace(/^\w/, (d) => d.toUpperCase())}
-						<div class="row">
-							<span>{keyCapitalized}:</span>
-							{typeof value === "number" ? addCommas(value) : value}
-						</div>
-					{/each}
-				</Tooltip>
-			{/if}
-		</Html>
-	</LayerCake>
+			<Html pointerEvents={false}>
+				{#if hideTooltip !== true}
+					<Tooltip {evt} let:detail>
+						<!-- For the tooltip, do another data join because the hover event only has the data from the geography data -->
+						{@const tooltipData = {
+							...detail.props,
+							...dataLookup.get(detail.props[mapJoinKey])
+						}}
+						{#each Object.entries(tooltipData) as [key, value]}
+							{@const keyCapitalized = key.replace(/^\w/, (d) =>
+								d.toUpperCase()
+							)}
+							<div class="row">
+								<span>{keyCapitalized}:</span>
+								{typeof value === "number" ? addCommas(value) : value}
+							</div>
+						{/each}
+					</Tooltip>
+				{/if}
+			</Html>
+		</LayerCake>
+	</div>
+	<div class="spacer"></div>
+	<div class="scrolly-text-container">
+		<!-- {console.log("DonutChart: scrollyValue => ", value)} -->
+		<Scrolly bind:value>
+			{#each steps as step, i}
+				<div class="step" class:active={value === i}>
+					<p>{@html step}</p>
+				</div>
+			{/each}
+		</Scrolly>
+	</div>
 </div>
 
 <style>
-	.map-container {
+	.chart-container {
 		width: 80%;
 		height: 250px;
-		margin: 25px auto;
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		position: sticky;
+		top: 4em;
+	}
+	#choropleth-chart {
+		padding-top: 30px;
+		padding-bottom: 30px;
+	}
+
+	.scrolly-text-container {
+		position: relative;
+		z-index: 5;
+	}
+	.spacer {
+		height: 75vh;
+	}
+	.step {
+		text-align: left;
+		width: 350px;
+		margin: 60vh 0;
+		padding: 0 0 0 1.5rem;
+		pointer-events: none;
+	}
+	.step p {
+		font-family: var(--serif);
+		padding: 0 2rem 0 0;
+		font-size: var(--32px);
+		pointer-events: auto;
+		position: relative;
 	}
 </style>

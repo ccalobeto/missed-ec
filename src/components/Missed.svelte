@@ -22,15 +22,15 @@
 			{/if}
 			{#if item.type === "donut-chart"}
 				{@const steps = item.value.steps}
-				<DonutChart {steps} />
+				<DonutChart {steps} {index} />
 			{/if}
 			{#if item.type === "bar-chart"}
 				{@const steps = item.value.steps}
-				<BarChart {steps} />
+				<BarChart {steps} {index} />
 			{/if}
 			{#if item.type === "choropleth-map"}
 				{@const steps = item.value.steps}
-				<ChoroplethMap {steps} />
+				<ChoroplethMap {steps} {index} />
 			{/if}
 		</div>
 	{/each}

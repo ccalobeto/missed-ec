@@ -8,11 +8,10 @@
 	import { dataLookupForCharts } from "$data/preparedData.js";
 
 	export let steps;
+	export let index;
 	let value;
 	let data;
 	let colors;
-
-	console.log("DonutChart: steps => ", steps);
 
 	const innerRadius = 80;
 	const outerRadius = 130;
@@ -26,22 +25,20 @@
 	const dataLookupForDonutChart = dataLookupForCharts("donut");
 
 	$: {
-		if (value == 0) {
+		if (index == 7) {
+			data = dataLookupForDonutChart.get("sex");
+			colors = ["#8ECEFD", "#F88B9D"];
+		} else if (index == 9) {
 			data = dataLookupForDonutChart.get("tipology");
 			colors = quantize((t) => interpolatePlasma(t * 0.7 + 0.3), data.length);
 		}
-		if (value == 1) {
-			data = dataLookupForDonutChart.get("sex");
-			colors = ["#8ECEFD", "#F88B9D"];
-		}
 	}
 
-	console.log("DonutChart: value => ", value);
+	// console.log("DonutChart: value => ", value);
 </script>
 
 <div id="donut-chart">
 	<div class="chart-container">
-		<!-- {console.log("DonutChart: value => ", value)} -->
 		<LayerCake
 			padding={{ top: 30, right: 0, bottom: 7, left: 0 }}
 			x={xKey}
@@ -57,7 +54,7 @@
 	</div>
 	<div class="spacer"></div>
 	<div class="scrolly-text-container">
-		<!-- {console.log("DonutChart: scrollyValue => ", value)} -->
+		{console.log("DonutChart: scrollyValue => ", value)}
 		<Scrolly bind:value>
 			{#each steps as step, i}
 				<div class="step" class:active={value === i}>

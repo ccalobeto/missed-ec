@@ -11,6 +11,8 @@
 	import { dataLookupForCharts } from "$data/preparedData.js";
 
 	export let steps;
+	export let index;
+
 	let data;
 	let value;
 	let colors;
@@ -23,10 +25,10 @@
 	const dataLookupForBarChart = dataLookupForCharts("bar");
 
 	$: {
-		if (value == 0) {
-			data = dataLookupForBarChart.get("category");
-		}
-		if (value == 1) {
+		if (index == 6) {
+			data = dataLookupForBarChart.get("historical");
+			colors = ["00bbff"];
+		} else if (index == 8) {
 			data = dataLookupForBarChart.get("age_range");
 			colors = [
 				"#e41a1c",
@@ -37,13 +39,16 @@
 				"#ffff33",
 				"#a65628"
 			];
+		} else if (index == 10) {
+			data = dataLookupForBarChart.get("category");
+			colors = ["00bbff"];
 		}
 	}
 </script>
 
 <div id="bar-chart">
 	<div class="chart-container">
-		<!-- {console.log("BarChart: step => ", step)} -->
+		<!-- {console.log("BarChart: value => ", value)} -->
 		<div class="chart-container">
 			<LayerCake
 				padding={{ bottom: 20, left: 250 }}
