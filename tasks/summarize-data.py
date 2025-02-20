@@ -2,6 +2,11 @@
 import pandas as pd
 import json
 
+# set year of analysis
+OBSERVED_YEAR = 2023 
+# set the ratio of data to population
+RATIO_COUNT = 10000
+
 # output json file
 OUTPUT_PATH = "./src/data/"
 OUTPUT_JSON = 'summaries.json'
@@ -34,15 +39,19 @@ df2.rename(columns={'P': 'proj_population'}, inplace=True)
 # join
 all_data = pd.merge(df, df3, on='motivo_desaparicion_obs', how='left')
 
-# aggregations
-agg_by_age_range = all_data.groupby(['country', 'rango_edad']).size().reset_index(name='count')
-agg_by_age_range['percentage'] = 100 * (agg_by_age_range['count'] / agg_by_age_range['count'].sum())
-agg_by_age_range.rename(columns={'rango_edad': 'cardinality'}, inplace=True)
-
+# historical
 agg_by_year = all_data.groupby(['country', 'disappearance_year']).size().reset_index(name='count')
 agg_by_year['percentage'] = 100 * (agg_by_year['count'] / agg_by_year['count'].sum())
 agg_by_year['disappearance_year'] = agg_by_year['disappearance_year'].astype(str)
 agg_by_year.rename(columns={'disappearance_year': 'cardinality'}, inplace=True)
+
+# filter by observed year
+all_data = all_data[all_data['disappearance_year'] == OBSERVED_YEAR]
+
+# aggregations
+agg_by_age_range = all_data.groupby(['country', 'rango_edad']).size().reset_index(name='count')
+agg_by_age_range['percentage'] = 100 * (agg_by_age_range['count'] / agg_by_age_range['count'].sum())
+agg_by_age_range.rename(columns={'rango_edad': 'cardinality'}, inplace=True)
 
 agg_by_tipology = all_data.groupby(['country', 'tipology']).size().reset_index(name='count')
 agg_by_tipology['percentage'] = 100 * (agg_by_tipology['count'] / agg_by_tipology['count'].sum())
@@ -56,19 +65,22 @@ agg_by_sex = all_data.groupby(['country', 'sexo']).size().reset_index(name='coun
 agg_by_sex['percentage'] = 100 * (agg_by_sex['count'] / agg_by_sex['count'].sum())
 agg_by_sex.rename(columns={'sexo': 'cardinality'}, inplace=True)
 
-agg_by_canton = all_data.groupby(['country', 'disappearance_year','id', 'name']).size().reset_index(name='missed')
+agg_by_canton = all_data.groupby(['country', 'disappearance_year','id', 'name']).size().reset_index(name='count')
 agg_by_canton = agg_by_canton.merge(df2, how='left', left_on=['id', 'disappearance_year'],right_on=['cantonId', 'year'])
-agg_by_canton['missedPer10k'] = agg_by_canton['missed'] / agg_by_canton['proj_population'] * 10000
-agg_by_canton.drop(columns=['proj_population', 'cantonId', 'cantonName'], inplace=True) 
-# agg_by_canton.rename(columns={'id': 'cantonId'}, inplace=True) 
+agg_by_canton['missedPer10k'] = agg_by_canton['count'] / agg_by_canton['proj_population'] * RATIO_COUNT
+
+nominal_cases = agg_by_canton[['country', 'id', 'name', 'year', 'count']]
+relative_cases = agg_by_canton[['country', 'id', 'name', 'year', 'missedPer10k']]
+relative_cases.rename(columns={'missedPer10k': 'count'}, inplace=True) 
 
 # convert multidataframes to json
-map_summaries = {'age_range': agg_by_age_range, 
-                 'disappearance_year': agg_by_year, 
+map_summaries = {'historical-cases': agg_by_year, 
+                 'age_range': agg_by_age_range, 
                  'tipology': agg_by_tipology, 
                  'category': agg_by_category, 
                  'sex': agg_by_sex,
-                 'canton': agg_by_canton
+                 'nominal-cases': nominal_cases,
+                 'relative-cases': relative_cases
                  }
 summaries = []
 for k,v in map_summaries.items():
