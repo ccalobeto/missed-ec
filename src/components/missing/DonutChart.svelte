@@ -30,11 +30,14 @@
 			colors = ["#8ECEFD", "#F88B9D"];
 		} else if (index == 9) {
 			data = dataLookupForDonutChart.get("tipology");
-			colors = quantize((t) => interpolatePlasma(t * 0.7 + 0.3), data.length);
+			colors = ["#8f0da4", "#ea7457", "#f0f921"];
 		}
 	}
 
-	// console.log("DonutChart: value => ", value);
+	$: console.log(
+		"DonutChart: total => ",
+		data.map((el) => el.value).reduce((a, b) => a + b, 0)
+	);
 </script>
 
 <div id="donut-chart">

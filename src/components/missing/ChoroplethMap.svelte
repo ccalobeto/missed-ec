@@ -10,6 +10,7 @@
 	import Tooltip from "$components/missing/_components/Tooltip.html.svelte";
 
 	import { stateData } from "$data/preparedData.js";
+	import { dataLookupForCharts } from "$data/preparedData.js";
 	import ec from "$data/support/ecuador-tm-50k.json";
 
 	export let steps;
@@ -19,6 +20,7 @@
 
 	/* map plot  */
 	const colorKey = "myValue";
+	// const dataLookupForMapChart = dataLookupForCharts("choropleth");
 
 	/* --------------------------------------------
 	 * Create lookups to more easily join our data
@@ -48,6 +50,11 @@
 	const colors = ["#ffdecc", "#ffc09c", "#ffa06b", "#ff7a33"];
 
 	const addCommas = format(",");
+
+	// console.log(
+	// 	"choroplethMap: dataLookupForMapChart => ",
+	// 	dataLookupForMapChart
+	// );
 </script>
 
 <div id="choropleth-chart">

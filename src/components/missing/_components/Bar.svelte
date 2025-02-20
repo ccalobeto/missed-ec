@@ -5,11 +5,10 @@
 <script>
 	import { getContext } from "svelte";
 
-	const { data, xGet, yGet, xScale, yScale } = getContext("LayerCake");
+	const { data, xGet, yGet, xScale, yScale, zGet } = getContext("LayerCake");
 
 	/** @type {String} [fill='#00bbff'] - The shape's fill color. This is technically optional because it comes with a default value but you'll likely want to replace it with your own color. */
-	// export let fill = "#00bbff";
-	export let colors;
+	export let fill = "#00bbff";
 </script>
 
 <g class="bar-group">
@@ -21,7 +20,7 @@
 			y={$yGet(d)}
 			height={$yScale.bandwidth()}
 			width={$xGet(d)}
-			fill={colors[i]}
+			fill={$zGet(d) || fill}
 		></rect>
 	{/each}
 </g>
