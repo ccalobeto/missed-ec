@@ -9,6 +9,13 @@ Choose your python virtual environment in your VS Code placed in the botton. In 
 Go to [Ecuador datos abiertos](https://www.datosabiertos.gob.ec/dataset/personas-desaparecidas), download the excel files and convert them to csv files. Be careful with ',' for decimals in google sheets. Move the converted files to `static/data/input`.
 Check support data cardinality if necessary.
 
+# A quick preparation of bulk files
+- Import xls files to google sheets and remove special characters (like "~", "'", ",").
+
+- Prepare categories csv file, no accents and MAYUSC.  
+
+- Rename columns.
+
 ## Executing scripts 
 Run these scripts
 
