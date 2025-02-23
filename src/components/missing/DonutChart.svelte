@@ -25,19 +25,15 @@
 	const dataLookupForDonutChart = dataLookupForCharts("donut");
 
 	$: {
-		if (index == 7) {
+		if (index == 9) {
 			data = dataLookupForDonutChart.get("sex");
 			colors = ["#8ECEFD", "#F88B9D"];
-		} else if (index == 9) {
-			data = dataLookupForDonutChart.get("tipology");
-			colors = ["#8f0da4", "#ea7457", "#f0f921"];
 		}
+		// else if (index == 11) {
+		// 	data = dataLookupForDonutChart.get("tipology");
+		// 	colors = ["#8f0da4", "#ea7457", "#f0f921"];
+		// }
 	}
-
-	$: console.log(
-		"DonutChart: total => ",
-		data.map((el) => el.value).reduce((a, b) => a + b, 0)
-	);
 </script>
 
 <div id="donut-chart">
