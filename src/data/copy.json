@@ -24,7 +24,7 @@
     },
     {
       "type": "text",
-      "value": "Estas iniciativas, combinadas con una mayor conciencia pública, la disposición de la información en la <a href=https://www.datosabiertos.gob.ec/dataset/personas-desaparecidas> plataforma de datos abiertos </a>  e informes gubernamentales, son pasos cruciales para abordar el tema de las personas desaparecidas en Ecuador."
+      "value": "Estas iniciativas, combinadas con una mayor conciencia pública, la disposición de la información en la <a href=https://www.datosabiertos.gob.ec/dataset/personas-desaparecidas> plataforma de datos abiertos de la república</a>  e informes gubernamentales, son pasos cruciales para abordar el tema de las personas desaparecidas en Ecuador."
     },
     {
       "type": "text",
@@ -34,15 +34,8 @@
       "type": "bar-chart",
       "value": {
         "steps": [
-          "En el periodo <b>2017-2024 </b> el acumulado de personas desaparecidas es de <b> 20,500 </b>, un aumento del <span style=background-color:#d7301f> 25% </span> con respecto al año 2017."
-        ]
-      }
-    },
-    {
-      "type": "donut-chart",
-      "value": {
-        "steps": [
-          "Más del <b>64%</b> de las desapariciones reportadas en el 2024 son <span style=background-color:#F88B9D80>mujeres</span>."
+          "En el periodo acumulado <b>2017-2025 </b>, los casos reportados de personas desaparecidas fueron de <b> 68,516 </b>.",
+          "Los casos han ido descendiendo en el tiempo. Comparando 2024 vs 2017 hay una disminución del <span style=background-color:#c994c7> 34% </span>."
         ]
       }
     },
@@ -50,7 +43,27 @@
       "type": "bar-chart",
       "value": {
         "steps": [
-          "El <b>44%</b> de las desapariciones corresponden a <span style=background-color:#e41a1c> adolescentes</span> entre 13 y 17 años."
+          "Y en el mismo periodo, aún permanecen desaparecidas <span style=background-color:#df65b0> 2181</span> personas."
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "value": "Veamos como está compuesto estos <span style=background-color:#c994c7> 6,952</span> casos reportados del 2024 ..."
+    },
+    {
+      "type": "donut-chart",
+      "value": {
+        "steps": [
+          "Más del <b>57%</b> de las desapariciones reportadas en el 2024 son <span style=background-color:#F88B9D80>mujeres</span>."
+        ]
+      }
+    },
+    {
+      "type": "bar-chart",
+      "value": {
+        "steps": [
+          "El <b>44%</b> de las desapariciones corresponden a edades entre <span style=background-color:#bf5b17> 13 y 17 </span> años."
         ]
       }
     },
@@ -66,7 +79,9 @@
       "type": "bar-chart",
       "value": {
         "steps": [
-          "Los <span style=background-color:#8f0da4> Problemas familiares </span> son la causa de más común con más del <b> 55% </b>de las desapariciones."
+          "Las <span style=background-color:#91003f> Causas Personales </span> son la causa de más común con el <b> 45% </b>de los casos reportados.",
+          "Un <b> 10% </b>aún se encuentra <span style=background-color:#ce1256> Desaparecido </span>.",
+          "El <b> 3% </b>es <span style=background-color:#e7298a> Posible vinculación a delito </span> como trata de personas y tráfico de inmigrantes."
         ]
       }
     },
@@ -74,7 +89,14 @@
       "type": "choropleth-map",
       "value": {
         "steps": [
-          "Los cantones con mayores desapariciones son <b>Guayas</b> y <b>Quito</b>.",
+          "Los cantones con mayores desapariciones son <b>Guayas</b> y <b>Quito</b>."
+        ]
+      }
+    },
+    {
+      "type": "choropleth-map",
+      "value": {
+        "steps": [
           "... pero considerando el tamaño de la población, los cantones con mayores desapariciones son <b>Paquisha</b> y <b>Morona</b>."
         ]
       }
