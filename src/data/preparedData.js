@@ -1,9 +1,10 @@
 import data from '$data/summaries.json';
 import topoFile from '$data/support/ecuador-tm-50k.json';
+import copy from "$data/copy.json";
 
 const kpisForCharts = {
   'bar': ['historical-cases', 'historical-cases-missed', 'age_range', 'category'],
-  'donut': ['sex', 'tipology'],
+  'donut': ['sex'],
   'choropleth': ['nominal-cases', 'relative-cases']
 }
 
@@ -60,5 +61,33 @@ function populateData(idDataList) {
     })
   });
   return zeroData
+
+}
+
+export const indexOfCopyToKpiAssociation = (copyBodyType, keyChart) => {
+
+  let indexToKpi = {};
+  const indexOfCopy = copy.body.filter((d, i) => {
+    if (d.type === copyBodyType) {
+      d.index = i;
+      return true;
+    }
+    return false;
+  });
+
+  const kpis = kpisForCharts[keyChart];
+
+  if (indexOfCopy.length == kpis.length) {
+
+    indexToKpi = indexOfCopy.map((d, i) => {
+      return {
+        [d.index]: kpis[i]
+      };
+    });
+    return indexToKpi.reduce((a, b) => ({ ...a, ...b }), {});
+  }
+  else {
+    console.log("Number of kpis in kpisForCharts must match with 'type' in body of copy.json");
+  }
 
 }
