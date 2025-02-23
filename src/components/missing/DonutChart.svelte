@@ -5,7 +5,10 @@
 	import Pie from "$components/missing/_components/Pie.svelte";
 	import Scrolly from "$components/helpers/Scrolly.svelte";
 
-	import { dataLookupForCharts } from "$data/preparedData.js";
+	import {
+		dataLookupForCharts,
+		indexOfCopyToKpiAssociation
+	} from "$data/preparedData.js";
 
 	export let steps;
 	export let index;
@@ -18,21 +21,18 @@
 	const padAngle = 0.05;
 
 	// set x and y, keys
+	const keyChart = "donut";
+	const copyBodyType = "donut-chart";
 	const xKey = "percentage";
 	const yKey = "cardinality";
 
 	// get cooked data which is a set
-	const dataLookupForDonutChart = dataLookupForCharts("donut");
+	const indexToKpi = indexOfCopyToKpiAssociation(copyBodyType, keyChart);
+	const dataLookupForDonutChart = dataLookupForCharts(keyChart);
 
 	$: {
-		if (index == 9) {
-			data = dataLookupForDonutChart.get("sex");
-			colors = ["#8ECEFD", "#F88B9D"];
-		}
-		// else if (index == 11) {
-		// 	data = dataLookupForDonutChart.get("tipology");
-		// 	colors = ["#8f0da4", "#ea7457", "#f0f921"];
-		// }
+		data = dataLookupForDonutChart.get(indexToKpi[index]);
+		colors = ["#8ECEFD", "#F88B9D"];
 	}
 </script>
 

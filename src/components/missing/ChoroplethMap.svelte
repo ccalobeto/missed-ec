@@ -1,15 +1,19 @@
 <script>
-	import { LayerCake, Svg, Html } from "layercake";
+	import { getContext } from "svelte";
 	import { scaleQuantize } from "d3-scale";
 	import { feature } from "topojson-client";
 	import { geoIdentity } from "d3-geo";
 	import { format } from "d3-format";
 
+	import { LayerCake, Svg, Html } from "layercake";
 	import MapSvg from "$components/missing/_components/Map.svg.svelte";
 	import Scrolly from "$components/helpers/Scrolly.svelte";
 	import Tooltip from "$components/missing/_components/Tooltip.html.svelte";
 
-	import { dataLookupForCharts } from "$data/preparedData.js";
+	import {
+		dataLookupForCharts,
+		indexOfCopyToKpiAssociation
+	} from "$data/preparedData.js";
 	import ec from "$data/support/ecuador-tm-50k.json";
 
 	export let steps;
@@ -27,28 +31,22 @@
 	const mapJoinKey = "id";
 	const colorKey = "value";
 	const dataLookup = new Map();
+	const keyChart = "choropleth";
+	const copyBodyType = "choropleth-map";
 
 	const geojson = feature(ec, ec.objects.level3);
 	const projection = geoIdentity;
 
-	const dataLookupForMapChart = dataLookupForCharts("choropleth");
+	const indexToKpi = indexOfCopyToKpiAssociation(copyBodyType, keyChart);
+	const dataLookupForMapChart = dataLookupForCharts(keyChart);
 
 	$: {
-		if (index == 13) {
-			data = dataLookupForMapChart.get("nominal-cases");
-			data.forEach((d) => {
-				if (d !== null) {
-					dataLookup.set(d[dataJoinKey], d);
-				}
-			});
-		} else if (index == 14) {
-			data = dataLookupForMapChart.get("relative-cases");
-			data.forEach((d) => {
-				if (d !== null) {
-					dataLookup.set(d[dataJoinKey], d);
-				}
-			});
-		}
+		data = dataLookupForMapChart.get(indexToKpi[index]);
+		data.forEach((d) => {
+			if (d !== null) {
+				dataLookup.set(d[dataJoinKey], d);
+			}
+		});
 	}
 
 	let evt = null;
@@ -61,8 +59,6 @@
 	const colors = ["#ffdecc", "#ffc09c", "#ffa06b", "#ff7a33"];
 
 	const addCommas = format(",");
-
-	$: console.log("choroplethMap: index => ", index);
 </script>
 
 <div id="choropleth-chart">

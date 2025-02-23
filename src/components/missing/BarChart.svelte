@@ -8,7 +8,10 @@
 
 	import Scrolly from "$components/helpers/Scrolly.svelte";
 
-	import { dataLookupForCharts } from "$data/preparedData.js";
+	import {
+		dataLookupForCharts,
+		indexOfCopyToKpiAssociation
+	} from "$data/preparedData.js";
 
 	export let steps;
 	export let index;
@@ -16,11 +19,12 @@
 	let data;
 	let value;
 	let colors;
-	let colorScale;
 
 	const currentValue = "2024";
 	const currentColor = "#339900";
 	const defaultColor = "#00bbff";
+	const keyChart = "bar";
+	const copyBodyType = "bar-chart";
 
 	// set x and y, keys
 	const xKeyCat = "value";
@@ -28,17 +32,16 @@
 	const zKeyCat = "value";
 
 	// get cooked data which is a set
-	const dataLookupForBarChart = dataLookupForCharts("bar");
+	const indexToKpi = indexOfCopyToKpiAssociation(copyBodyType, keyChart);
+	const dataLookupForBarChart = dataLookupForCharts(keyChart);
 
 	$: {
+		data = dataLookupForBarChart.get(indexToKpi[index]);
 		if (index == 6) {
-			data = dataLookupForBarChart.get("historical-cases");
 			colors = Array.from({ length: data.length }, () => "#c994c7");
 		} else if (index == 7) {
-			data = dataLookupForBarChart.get("historical-cases-missed");
 			colors = Array.from({ length: data.length }, () => "#df65b0");
 		} else if (index == 10) {
-			data = dataLookupForBarChart.get("age_range");
 			colors = [
 				"#7fc97f",
 				"#beaed4",
@@ -48,8 +51,7 @@
 				"#f0027f",
 				"#bf5b17"
 			];
-		} else if (index == 12) {
-			data = dataLookupForBarChart.get("category");
+		} else if (index == 11) {
 			colors = [
 				"#c994c7",
 				"#df65b0",
