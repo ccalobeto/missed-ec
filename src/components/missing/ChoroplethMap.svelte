@@ -9,36 +9,47 @@
 	import Scrolly from "$components/helpers/Scrolly.svelte";
 	import Tooltip from "$components/missing/_components/Tooltip.html.svelte";
 
-	import { stateData } from "$data/preparedData.js";
 	import { dataLookupForCharts } from "$data/preparedData.js";
 	import ec from "$data/support/ecuador-tm-50k.json";
 
 	export let steps;
 	export let index;
 
+	let data;
 	let value;
-
-	/* map plot  */
-	const colorKey = "myValue";
-	// const dataLookupForMapChart = dataLookupForCharts("choropleth");
 
 	/* --------------------------------------------
 	 * Create lookups to more easily join our data
 	 * `dataJoinKey` is the name of the field in the data
 	 * `mapJoinKey` is the name of the field in the map file
 	 */
-	const dataJoinKey = "name";
-	const mapJoinKey = "name";
+	const dataJoinKey = "id";
+	const mapJoinKey = "id";
+	const colorKey = "value";
 	const dataLookup = new Map();
 
 	const geojson = feature(ec, ec.objects.level3);
 	const projection = geoIdentity;
 
-	stateData().forEach((d) => {
-		if (d !== null) {
-			dataLookup.set(d[dataJoinKey], d);
+	const dataLookupForMapChart = dataLookupForCharts("choropleth");
+
+	$: {
+		if (index == 13) {
+			data = dataLookupForMapChart.get("nominal-cases");
+			data.forEach((d) => {
+				if (d !== null) {
+					dataLookup.set(d[dataJoinKey], d);
+				}
+			});
+		} else if (index == 14) {
+			data = dataLookupForMapChart.get("relative-cases");
+			data.forEach((d) => {
+				if (d !== null) {
+					dataLookup.set(d[dataJoinKey], d);
+				}
+			});
 		}
-	});
+	}
 
 	let evt = null;
 	let hideTooltip = true;
@@ -51,10 +62,7 @@
 
 	const addCommas = format(",");
 
-	// console.log(
-	// 	"choroplethMap: dataLookupForMapChart => ",
-	// 	dataLookupForMapChart
-	// );
+	$: console.log("choroplethMap: index => ", index);
 </script>
 
 <div id="choropleth-chart">
