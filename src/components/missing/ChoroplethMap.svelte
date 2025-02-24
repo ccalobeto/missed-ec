@@ -122,6 +122,7 @@
 		margin-right: auto;
 		position: sticky;
 		top: 4em;
+		z-index: 2;
 	}
 	#choropleth-chart {
 		padding-top: 30px;
@@ -130,7 +131,7 @@
 
 	.scrolly-text-container {
 		position: relative;
-		z-index: 5;
+		z-index: 1;
 	}
 	.spacer {
 		height: 75vh;
