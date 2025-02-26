@@ -1,4 +1,3 @@
-
 body {
 	background-color: var(--color-bg, white);
 	color: var(--color-fg, black);
@@ -27,7 +26,8 @@ mark {
 
 a {
 	color: var(--color-link, blue);
-	text-decoration: 2px underline var(--color-link, blue);
+	text-decoration: none;
+	border-bottom: 1px solid currentColor;
 }
 
 
@@ -38,7 +38,8 @@ video {
 	height: auto;
 }
 
-input, textarea {
+input,
+textarea {
 	-webkit-appearance: none;
 	appearance: none;
 	background-color: var(--color-input-bg, whitesmoke);
@@ -180,6 +181,7 @@ tfoot {
 ::-moz-selection {
 	background-color: var(--color-selection, lightgray);
 }
+
 ::selection {
 	background-color: var(--color-selection, lightgray);
 }
@@ -192,7 +194,8 @@ select {
 	background-size: auto 50%;
 }
 
-ol, ul {
+ol,
+ul {
 	padding-left: 16px;
 }
 
@@ -219,7 +222,7 @@ ol, ul {
 	height: 1px;
 	overflow: hidden;
 	position: absolute;
-	white-space: nowrap; 
+	white-space: nowrap;
 	width: 1px;
 }
 
@@ -233,18 +236,19 @@ ol, ul {
 		var(--stroke-width) var(--stroke-width) 0 var(--color-text-outline, #fff),
 		0 var(--stroke-width) 0 var(--color-text-outline, #fff),
 		var(--stroke-width-n) var(--stroke-width) 0 var(--color-text-outline, #fff),
-		var(--stroke-width-n) 0 0 var(--color-text-outline, #fff); 
+		var(--stroke-width-n) 0 0 var(--color-text-outline, #fff);
 }
 
 /* desktop (mouse-enabled device) */
 @media (hover: hover) and (pointer: fine) {
+
 	button:hover,
 	a[role="button"]:hover,
 	input[type="button"]:hover,
 	input[type="submit"]:hover,
 	input[type="reset"]:hover {
 		background: var(--color-button-hover, lightgray);
-	}	
+	}
 
 	button:disabled:hover,
 	a[role="button"]:disabled:hover,

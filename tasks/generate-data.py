@@ -9,8 +9,8 @@ from shapely.geometry import Point, box
 
 
 # The path is different in python in comparison with JS: it is the project path
-FILE = "./src/data/input/mdi_personas_desaparecidas_2017-2023.csv"
-FILE1 = "./src/data/input/mdi_personas_desaparecidas_2024_enero-octubre.csv"
+FILE = "./src/data/input/mdi_personas_desaparecidas_2017_2024.csv"
+FILE1 = "./src/data/input/mdi_personas_desaparecidas_2025_enero.csv"
 topo_file = "./src/data/support/ecuador-tm-50k.json"
 
 OUTPUT_LONG_DATA = "./src/data/output/long_data.csv"
@@ -22,54 +22,49 @@ df1 = pd.read_csv(FILE1)
 
 # rename columns
 newColumns = {
-  'edad_aproximada': 'edad',
+  'edad_aprox.': 'edad',
   'motivo_desaparcion': 'motivo_desaparicion',
-  'motivo_desaparcion_observada': 'motivo_desaparicion_obs',
+  'motivo_desaparcion_obs.': 'motivo_desaparicion_obs',
 }
 newColumns1 = {
   'latitud_desaparicion': 'latitud',
   'longitud_desaparicion': 'longitud',
-  'edad_aproximada': 'edad',
+  'edad_aprox.': 'edad',
   'motivo_desaparcion': 'motivo_desaparicion',
-  'motivo_desaparcion_observada': 'motivo_desaparicion_obs',
+  'motivo_desaparcion_obs.': 'motivo_desaparicion_obs',
 }
 df.rename(columns=newColumns, inplace=True)
 df1.rename(columns=newColumns1, inplace=True)
 
-# reorder columns for df1
-df1 = df1[['provincia', 'latitud', 'longitud', 'edad', 'sexo', 'motivo_desaparicion', 'motivo_desaparicion_obs', 'fecha_desaparicion', 'situacion_actual', 'fecha_localizacion', 'rango_edad', 'latitud_encontrado', 'longitud_encontrado']]
+# concatenate df and df1
+df2 = pd.concat([df, df1], ignore_index=True)
+# reorder columns for df12
+df2 = df2[['provincia', 'latitud', 'longitud', 'edad', 'sexo', 'motivo_desaparicion', 'motivo_desaparicion_obs', 'fecha_desaparicion', 'estado_desaparecido', 'fecha_localizacion', 'latitud_localizacion', 'longitud_localizacion']]
 
 # reemplace SIN_DATO with NaN
-df.replace('SIN_DATO', np.nan, inplace=True)
-df1.replace('SIN_DATO', np.nan, inplace=True)
+df2.replace('INVESTIGACION', np.nan, inplace=True)
+
+# remove last space
+df2['estado_desaparecido'] = df2['estado_desaparecido'].str.strip()
+df2['motivo_desaparicion_obs'] = df2['motivo_desaparicion_obs'].str.strip()
+
 # do some cleaning and transform. Only float accept nan values
-df['edad'] = df['edad'].astype('float32')
-df['motivo_desaparicion_obs'] = df['motivo_desaparicion_obs'].str.upper()
-df1['edad'] = df1['edad'].astype('float32')
-df1['motivo_desaparicion_obs'] = df1['motivo_desaparicion_obs'].str.upper()
-df1['rango_edad'] = df1['rango_edad'].str.upper().map({'PERSONAS DE LA TERCERA EDAD': 'TERCERA EDAD'})
-df1['latitud_encontrado'] = df1['latitud_encontrado'].astype('float32')
-df1['longitud_encontrado'] = df1['longitud_encontrado'].astype('float32')
+df2['motivo_desaparicion_obs'] = df2['motivo_desaparicion_obs'].str.upper()
+df2['latitud_localizacion'] = df2['latitud_localizacion'].astype('float32')
+df2['longitud_localizacion'] = df2['longitud_localizacion'].astype('float32')
+
+# fill missing values of edadwith the mean
+meanAgeOfYoungAdults = df2['edad'].mean()
+df2.loc[df2['edad'].isna(), 'edad'] = meanAgeOfYoungAdults
 
 ## add categories to df
 bins = [-1, 12, 17, 24, 35, 50, 64, np.inf]
-labels = ['NIÑOS', 'ADOLESCENTES', 'JÓVENES ADULTOS', 'ADULTOS JÓVENES', 'ADULTOS', 'ADULTOS MAYORES', 'TERCERA EDAD']
-df['rango_edad'] = pd.cut(df['edad'], bins, labels=labels)
+labels = ['De 0 - 12', 'De 13 - 17', 'De 18 - 24', 'De 25 - 35', 'De 36 - 50', 'De 51 - 65', 'De 65 a más']
+df2['rango_edad'] = pd.cut(df2['edad'], bins, labels=labels)
 
 # transform to string date to date
-df['fecha_desaparicion'] = pd.to_datetime(df['fecha_desaparicion'], format='%d/%m/%Y')
-df['fecha_localizacion'] = pd.to_datetime(df['fecha_localizacion'], format='%d/%m/%Y')
-df1['fecha_desaparicion'] = pd.to_datetime(df1['fecha_desaparicion'], format='%d/%m/%Y')
-df1['fecha_localizacion'] = pd.to_datetime(df1['fecha_localizacion'], format='%d/%m/%Y')
-
-# Append dfs
-df2 = pd.concat([df, df1], ignore_index=True)
-
-# fill missing values of edadwith the mean
-meanAgeOfYoungAdults = df2[df2['rango_edad']=='ADULTOS JÓVENES']['edad'].mean()
-df2.loc[df2['edad'].isna(), 'edad'] = meanAgeOfYoungAdults
-# fill missing values of rango_edad
-df2.loc[df2['rango_edad'].isna(),'rango_edad'] = pd.cut(df2['edad'], bins, labels=labels)
+df2['fecha_desaparicion'] = pd.to_datetime(df2['fecha_desaparicion'], format='%d/%m/%Y')
+df2['fecha_localizacion'] = pd.to_datetime(df2['fecha_localizacion'], format='%d/%m/%Y')
 
 # add extra columns for analysis
 df2['disappearance_year'] = df2['fecha_desaparicion'].dt.year
@@ -78,6 +73,7 @@ df2['disappearance_day'] = df2['fecha_desaparicion'].dt.day
 df2['days_gone'] = (df2['fecha_localizacion'] - df2['fecha_desaparicion']).dt.days
 # add country ISO 3166-1 A-3 code
 df2['country'] = 'ECU'
+df2['row_id'] = df2.index
 
 # remove accents
 cols_accents_to_remove = ['motivo_desaparicion', 'motivo_desaparicion_obs', 'rango_edad']
@@ -95,7 +91,7 @@ canton_gdf = gpd.GeoDataFrame.from_features(canton_dict['features'])
 # convert bbox into a polygon
 geom = box(*canton_gdf.total_bounds)
 
-# prepare the coordinates and covert to geopandas
+# prepare the coordinates and convert to geopandas
 df2['coordinates'] = list(zip(df2['longitud'], df2['latitud']))
 df2['coordinates'] = df2['coordinates'].apply(Point)
 # check if the coordinates are inside Ecuador
@@ -123,3 +119,13 @@ df3.drop(columns=['coordinates','index_right', 'index'], inplace=True)
 # save files
 df2.to_csv(OUTPUT_LONG_DATA, index=False)
 df3.to_csv(OUTPUT_LONG_DATA_WITH_CANTONID, index=False)
+
+stats = {
+  'total_input_rows': df.shape[0] + df1.shape[0],
+  'total_long_data_rows': df2.shape[0],
+  'total_long_data_with_cantonId_rows': df3.shape[0],
+  # 'total_rows_without_cantonId': df2[df2['id'].isna()].shape[0],
+}
+
+print('stats:', stats)
+print('2 CSV files created')

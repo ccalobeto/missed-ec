@@ -1,42 +1,43 @@
 <script>
+	import { quantize, interpolatePlasma } from "d3";
+
 	import { LayerCake, Svg } from "layercake";
 	import Pie from "$components/missing/_components/Pie.svelte";
 	import Scrolly from "$components/helpers/Scrolly.svelte";
 
-	import { dataLookupForCharts } from "$data/preparedData.js";
+	import {
+		dataLookupForCharts,
+		indexOfCopyToKpiAssociation
+	} from "$data/preparedData.js";
 
 	export let steps;
+	export let index;
 	let value;
 	let data;
-
-	console.log("DonutChart: steps => ", steps);
+	let colors;
 
 	const innerRadius = 80;
 	const outerRadius = 130;
 	const padAngle = 0.05;
 
 	// set x and y, keys
+	const keyChart = "donut";
+	const copyBodyType = "donut-chart";
 	const xKey = "percentage";
 	const yKey = "cardinality";
 
 	// get cooked data which is a set
-	const dataLookupForDonutChart = dataLookupForCharts("donut");
+	const indexToKpi = indexOfCopyToKpiAssociation(copyBodyType, keyChart);
+	const dataLookupForDonutChart = dataLookupForCharts(keyChart);
 
 	$: {
-		if (value == 0) {
-			data = dataLookupForDonutChart.get("tipology");
-		}
-		if (value == 1) {
-			data = dataLookupForDonutChart.get("sex");
-		}
+		data = dataLookupForDonutChart.get(indexToKpi[index]);
+		colors = ["#8ECEFD", "#F88B9D"];
 	}
-
-	console.log("DonutChart: value => ", value);
 </script>
 
 <div id="donut-chart">
 	<div class="chart-container">
-		<!-- {console.log("DonutChart: value => ", value)} -->
 		<LayerCake
 			padding={{ top: 30, right: 0, bottom: 7, left: 0 }}
 			x={xKey}
@@ -46,17 +47,17 @@
 			{data}
 		>
 			<Svg>
-				<Pie {innerRadius} {outerRadius} {padAngle} />
+				<Pie {innerRadius} {outerRadius} {padAngle} {colors} />
 			</Svg>
 		</LayerCake>
 	</div>
 	<div class="spacer"></div>
 	<div class="scrolly-text-container">
-		<!-- {console.log("DonutChart: scrollyValue => ", value)} -->
+		{console.log("DonutChart: scrollyValue => ", value)}
 		<Scrolly bind:value>
 			{#each steps as step, i}
 				<div class="step" class:active={value === i}>
-					<div class="step-text">{@html step}</div>
+					<p>{@html step}</p>
 				</div>
 			{/each}
 		</Scrolly>
@@ -73,6 +74,11 @@
 	.chart-container {
 		width: 100%;
 		height: 250px;
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		position: sticky;
+		top: 4em;
 	}
 	#donut-chart {
 		padding-top: 30px;
@@ -81,27 +87,23 @@
 
 	.scrolly-text-container {
 		position: relative;
-		z-index: 5;
+		z-index: 1;
+	}
+	.spacer {
+		height: 75vh;
 	}
 	.step {
-		height: 80vh;
-		background: none;
-		text-align: center;
-		width: 30%;
-		margin-left: auto;
-		margin-right: auto;
+		text-align: left;
+		width: 350px;
+		margin: 60vh 0;
+		padding: 0 0 0 1.5rem;
+		pointer-events: none;
 	}
-
-	.chart-container {
-		display: block;
-		margin-left: auto;
-		margin-right: auto;
-		position: sticky;
-		top: 4em;
-	}
-
-	.step-text {
-		background-color: #333;
-		padding: 1rem;
+	.step p {
+		font-family: var(--serif);
+		padding: 0 2rem 0 0;
+		font-size: var(--28px);
+		pointer-events: auto;
+		position: relative;
 	}
 </style>

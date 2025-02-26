@@ -1,9 +1,10 @@
 {
-  "title": "Análisis sobre las desapariciones en el Ecuador",
-  "description": "El uso de enfoques, autoridades y organizaciones basadas en datos apuntan a mejorar la prevención, mejorar los tiempos de respuesta y apoyar a las familias afectadas.",
+  "title": "Análisis sobre la desaparición de personas en el Ecuador",
+  "description": "Una manera de usar los datos para entender el perfil de las personas desaparecidas en el Ecuador atraves de la visualización.",
   "url": "https://github.com/ccalobeto/missed-ec",
   "keywords": "Ecuador, crime, missing people, human rights",
-  "byline": "Elaborado por \u003Ca href=https://www.carlosleon.dev target=_blank\u003ECarlos León\u003C/a\u003E",
+  "byline": "Elaborado por <a href=https://www.carlosleon.dev target=_blank>Carlos León</a>",
+  "footer": "Un gráfico hecho en svelte y d3.js. <span> <a https://www.carlosleon.dev/blog/missed-in-ec target=_blank>Blog post</a> | <a href=https://github.com/ccalobeto/missed-ec target=_blank>GitHub</a> </span>.",
   "body": [
     {
       "type": "text",
@@ -23,14 +24,18 @@
     },
     {
       "type": "text",
-      "value": "Estas iniciativas, combinadas con una mayor conciencia pública e informes gubernamentales, son pasos cruciales para abordar el tema de las personas desaparecidas en Ecuador."
+      "value": "Estas iniciativas, combinadas con una mayor conciencia pública, la disposición de la información en la <a href=https://www.datosabiertos.gob.ec/dataset/personas-desaparecidas> plataforma de datos abiertos de la república</a>  e informes gubernamentales, son pasos cruciales para abordar el tema de las personas desaparecidas en Ecuador."
     },
     {
-      "type": "donut-chart",
+      "type": "text",
+      "value": "Y empezamos lo que nos dicen los datos históricos ..."
+    },
+    {
+      "type": "bar-chart",
       "value": {
         "steps": [
-          "<b>Tipología.</b> Del total de desapariciones, el <b> 6.6% </b> es <span style=background-color:#598FBC> forzosa </span> o con signos de criminalidad, una tasa muy alta comparada como España(1%).",
-          "<b>Género.</b> Más del <b>58%</b> de las desapariciones reportadas en el 2024 son <span>mujeres</span>."
+          "En el periodo acumulado <b>2017-2025 </b>, los casos reportados de personas desaparecidas fueron de <b> 68,516 </b>.",
+          "Los casos han ido descendiendo en el tiempo. Comparando 2024 vs 2017 hay una disminución del <span style=background-color:#c994c7> 34% </span>."
         ]
       }
     },
@@ -38,8 +43,49 @@
       "type": "bar-chart",
       "value": {
         "steps": [
-          "<b>Categoría.</b> Los <span> Problemas familiares </span> son la causa de más común con el <b> 50% </b>de las desapariciones.",
-          "<b>Grupos de Edad.</b> El <b>44%</b> de las desapariciones corresponden a menores entre 13 y 17 años."
+          "Y en el mismo periodo, aún permanecen desaparecidas <span style=background-color:#df65b0> 2181</span> personas."
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "value": "Veamos como está compuesto estos <span style=background-color:#c994c7> 6,952</span> casos reportados del 2024 ..."
+    },
+    {
+      "type": "donut-chart",
+      "value": {
+        "steps": [
+          "Más del <b>57%</b> de las desapariciones reportadas en el 2024 son <span style=background-color:#F88B9D80>mujeres</span>."
+        ]
+      }
+    },
+    {
+      "type": "bar-chart",
+      "value": {
+        "steps": [
+          "El <b>44%</b> de las desapariciones corresponden a edades entre <span style=background-color:#bf5b17> 13 y 17 </span> años."
+        ]
+      }
+    },
+    {
+      "type": "bar-chart",
+      "value": {
+        "steps": [
+          "Las <span style=background-color:#91003f> Causas Personales </span> son la causa de más común con el <b> 45% </b>de los casos reportados.",
+          "Un <b> 10% </b>aún se encuentra <span style=background-color:#ce1256> Desaparecido </span>.",
+          "El <b> 3% </b>es <span style=background-color:#e7298a> Posible vinculación a delito </span> como trata de personas y tráfico de inmigrantes."
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "value": "Posiciónese sobre el cantón para ver la leyenda emergente ..."
+    },
+    {
+      "type": "choropleth-map",
+      "value": {
+        "steps": [
+          "Los cantones con mayores desapariciones son <b>Quito</b> y <b>Guayaquil</b>."
         ]
       }
     },
@@ -47,14 +93,13 @@
       "type": "choropleth-map",
       "value": {
         "steps": [
-          "Los cantones con mayores desapariciones son <b>Guayas</b> y <b>Quito</b>.",
-          "Y considerando el tamaño de la población, los cantones con mayores desapariciones son <b>Paquisha</b> y <b>Morona</b>."
+          "... pero considerando el tamaño de la población, los cantones con mayores desapariciones son <b>Centinela del Cóndor</b> y <b>El Pangui</b> con <span style=background-color:#ff7a33> 14.4 </span>  y  <span style=background-color:#ff7a33> 11.9 </span> personas cada 10,000 habitantes."
         ]
       }
     },
     {
       "type": "text",
-      "value": "El presente análisis nos lleva a la conclusión que la población más vulnerable a ser secuestrada por bandas criminales son mujeres con problemas familiares entre 13-17 años"
+      "value": "El presente análisis nos lleva a la conclusión que la población más vulnerable a ser secuestrada por bandas criminales son <span style=background-color:#f0f921>mujeres adolescente con problemas familiares en los cantones de Paquisha y Morona.</span>"
     }
   ]
 }
