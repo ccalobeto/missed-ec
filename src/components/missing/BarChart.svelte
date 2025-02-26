@@ -1,10 +1,11 @@
 <script>
 	import { scaleBand, scaleOrdinal } from "d3-scale";
 
-	import { LayerCake, Svg } from "layercake";
+	import { Html, LayerCake, Svg } from "layercake";
 	import AxisY from "$components/missing/_components/AxisY.svelte";
 	import AxisX from "$components/missing/_components/AxisX.svelte";
 	import Bar from "$components/missing/_components/Bar.svelte";
+	import Labels from "$components/missing/_components/Labels.svelte";
 
 	import Scrolly from "$components/helpers/Scrolly.svelte";
 
@@ -85,10 +86,13 @@
 				{data}
 			>
 				<Svg>
-					<AxisX tickMarks baseline snapLabels gridlines={false} />
+					<AxisX />
 					<AxisY tickMarks gridlines={false} />
 					<Bar />
 				</Svg>
+				<Html>
+					<Labels />
+				</Html>
 			</LayerCake>
 		</div>
 	</div>

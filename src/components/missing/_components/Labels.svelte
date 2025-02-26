@@ -6,37 +6,37 @@
 	import { getContext } from "svelte";
 	import { max } from "d3-array";
 
-	const { data, x, y, xScale, yScale, xRange, yRange, z } =
+	const { data, x, y, xScale, yScale, xRange, yRange, z, xGet, yGet } =
 		getContext("LayerCake");
 
 	/* --------------------------------------------
 	 * Title case the first letter
 	 */
-	const cap = (val) => val.replace(/^\w/, (d) => d.toUpperCase());
+	// const cap = (val) => val.replace(/^\w/, (d) => d.toUpperCase());
 
 	/* --------------------------------------------
-	 * Put the label on the highest value
+	 * Put the label on top of the bar
 	 */
-	$: left = (values) => $xScale(max(values, $x)) / Math.max(...$xRange);
-	$: top = (values) => $yScale(max(values, $y)) / Math.max(...$yRange);
+
+	const barHeight = $yScale.bandwidth();
+	console.log("barHeight => ", barHeight);
+	$: left = (values) => $xGet(values) / Math.max(...$xRange);
+	$: top = (values) => ($yGet(values) + barHeight / 2) / Math.max(...$yRange);
 </script>
 
 {#each $data as group}
 	<div
 		class="label"
-		style="
-      top:{top(group.values) * 100}%;
-      left:{left(group.values) * 100}%;
-    "
+		style="left:{left(group) * 100}%; top:{top(group) * 100}%;"
 	>
-		{cap($z(group))}
+		{$x(group)}
 	</div>
 {/each}
 
 <style>
 	.label {
 		position: absolute;
-		transform: translate(-100%, -100%) translateY(1px);
-		font-size: 13px;
+		transform: translate(10%, -100%) translateY(15px);
+		font-size: 11px;
 	}
 </style>
