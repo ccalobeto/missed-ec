@@ -69,32 +69,30 @@
 	}
 </script>
 
-<div id="bar-chart">
+<div class="charter">
 	<div class="chart-container">
 		<!-- {console.log("BarChart: value => ", value)} -->
-		<div class="chart-container">
-			<LayerCake
-				padding={{ bottom: 20, left: 250 }}
-				x={xKeyCat}
-				y={yKeyCat}
-				z={zKeyCat}
-				yScale={scaleBand().paddingInner(0.05)}
-				xDomain={[0, null]}
-				yDomainSort={false}
-				zRange={colors}
-				zScale={scaleOrdinal()}
-				{data}
-			>
-				<Svg>
-					<AxisX />
-					<AxisY tickMarks gridlines={false} />
-					<Bar />
-				</Svg>
-				<Html>
-					<Labels />
-				</Html>
-			</LayerCake>
-		</div>
+		<LayerCake
+			padding={{ bottom: 20, left: 250 }}
+			x={xKeyCat}
+			y={yKeyCat}
+			z={zKeyCat}
+			yScale={scaleBand().paddingInner(0.05)}
+			xDomain={[0, null]}
+			yDomainSort={false}
+			zRange={colors}
+			zScale={scaleOrdinal()}
+			{data}
+		>
+			<Svg>
+				<AxisX />
+				<AxisY tickMarks gridlines={false} />
+				<Bar />
+			</Svg>
+			<Html>
+				<Labels />
+			</Html>
+		</LayerCake>
 	</div>
 	<div class="spacer"></div>
 	<div class="scrolly-text-container">
@@ -108,42 +106,3 @@
 		</Scrolly>
 	</div>
 </div>
-
-<style>
-	.chart-container {
-		width: 80%;
-		height: 250px;
-		display: block;
-		margin-left: auto;
-		margin-right: auto;
-		position: sticky;
-		top: 4em;
-	}
-
-	#bar-chart {
-		padding-top: 30px;
-		padding-bottom: 30px;
-	}
-
-	.scrolly-text-container {
-		position: relative;
-		z-index: 5;
-	}
-	.spacer {
-		height: 75vh;
-	}
-	.step {
-		text-align: left;
-		width: 350px;
-		margin: 60vh 0;
-		padding: 0 0 0 1.5rem;
-		pointer-events: none;
-	}
-	.step p {
-		font-family: var(--serif);
-		padding: 0 2rem 0 0;
-		font-size: var(--32px);
-		pointer-events: auto;
-		position: relative;
-	}
-</style>

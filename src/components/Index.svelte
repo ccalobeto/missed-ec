@@ -45,7 +45,7 @@
 	}
 
 	section img {
-		aspect-ratio: 1;
+		aspect-ratio: 1.2;
 		margin: auto;
 	}
 </style>
