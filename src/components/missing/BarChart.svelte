@@ -106,3 +106,12 @@
 		</Scrolly>
 	</div>
 </div>
+
+<style>
+	@media (max-width: 600px) {
+		.chart-container {
+			margin-left: -40%;
+			width: 140%;
+		}
+	}
+</style>

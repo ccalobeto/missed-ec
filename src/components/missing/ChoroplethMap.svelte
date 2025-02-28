@@ -115,7 +115,7 @@
 
 <style>
 	.chart-container {
-		z-index: 6;
+		z-index: 2;
 	}
 	#choropleth-chart {
 		padding-top: 30px;

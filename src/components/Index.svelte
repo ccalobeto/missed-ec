@@ -24,6 +24,7 @@
 		flex-direction: column;
 	}
 	section {
+		border: 2px solid var(--color-gray-300);
 		padding: 5px;
 		margin: 5px;
 		box-sizing: border-box;
@@ -31,7 +32,7 @@
 	section h1 {
 		font-family: var(--serif);
 		font-weight: 300;
-		font-size: var(--36px);
+		font-size: clamp(1.8rem, calc(7vw + 0.8rem), 3.5rem);
 		text-align: center;
 	}
 
