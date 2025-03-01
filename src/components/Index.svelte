@@ -10,6 +10,7 @@
 	<h1>{copy.title}</h1>
 	<p>{@html copy.description}</p>
 	<img src="missing-child.jpg" alt="" />
+	<p class="byline">{@html copy.byline}</p>
 </section>
 
 <article>
@@ -17,6 +18,9 @@
 </article>
 
 <!-- <Footer /> -->
+<section>
+	<p class="footer">{@html copy.footer}</p>
+</section>
 
 <style>
 	article {
@@ -28,6 +32,7 @@
 		padding: 5px;
 		margin: 5px;
 		box-sizing: border-box;
+		/* justify-items: center; */
 	}
 	section h1 {
 		font-family: var(--serif);
@@ -48,5 +53,16 @@
 	section img {
 		aspect-ratio: 1.2;
 		margin: auto;
+	}
+
+	.byline {
+		font-family: var(--mono, --font-body);
+		font-size: var(--16px);
+		font-style: normal;
+	}
+	.footer {
+		font-family: var(--mono, --font-body);
+		font-style: normal;
+		font-size: var(--16px);
 	}
 </style>
