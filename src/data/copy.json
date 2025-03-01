@@ -4,7 +4,7 @@
   "url": "https://github.com/ccalobeto/missed-ec",
   "keywords": "Ecuador, crime, missing people, human rights",
   "byline": "Elaborado por <a href=https://www.carlosleon.dev target=_blank>Carlos León</a>",
-  "footer": "Un gráfico hecho en svelte y d3.js. <span> <a https://www.carlosleon.dev/blog/missed-in-ec target=_blank>Blog post</a> | <a href=https://github.com/ccalobeto/missed-ec target=_blank>GitHub</a> </span>.",
+  "footer": "Un gráfico hecho en svelte y d3.js. <span> <a href=https://www.carlosleon.dev/blog/missed-in-ec target=_blank>Blog post</a> | <a href=https://github.com/ccalobeto/missed-ec target=_blank>GitHub</a> </span>.",
   "body": [
     {
       "type": "text",
