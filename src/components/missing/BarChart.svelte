@@ -16,6 +16,7 @@
 
 	export let steps;
 	export let index;
+	export let title;
 
 	let data;
 	let value;
@@ -84,6 +85,7 @@
 
 <div class="charter">
 	<div class="chart-container">
+		<h5 class="chart-title">{title}</h5>
 		<!-- {console.log("BarChart: value => ", value)} -->
 		<LayerCake
 			padding={{ bottom: 20, left: 250 }}

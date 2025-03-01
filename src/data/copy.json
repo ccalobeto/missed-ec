@@ -28,6 +28,7 @@
     },
     {
       "type": "bar-chart",
+      "title": "Casos reportados de personas desaparecidas",
       "value": {
         "steps": [
           "En el periodo acumulado <b>2017-2025 </b>, los casos reportados de personas desaparecidas fueron de <b> 68,516 </b>.",
@@ -37,9 +38,10 @@
     },
     {
       "type": "bar-chart",
+      "title": "Casos de personas que aún están desaparecidas",
       "value": {
         "steps": [
-          "Sin embargo, los casos de personas que aún permanecen desaparecidas han ido aumentando año a año. En el mismo período permanecen desaparecidas <span style=background-color:#EB0F51CC> 2181</span> personas."
+          "Los casos de personas que aún permanecen desaparecidas han ido en aumento. En el mismo período permanecen desaparecidas <span style=background-color:#EB0F51CC> 2181</span> personas."
         ]
       }
     },
@@ -49,6 +51,7 @@
     },
     {
       "type": "donut-chart",
+      "title": "Sexo de las personas reportadas como desaparecidas",
       "value": {
         "steps": [
           "Más del <b>56%</b> de las desapariciones reportadas en el 2024 son <span style=background-color:#F88B9D80>mujeres</span>."
@@ -57,6 +60,7 @@
     },
     {
       "type": "bar-chart",
+      "title": "Edad de las personas reportadas como desaparecidas",
       "value": {
         "steps": [
           "El <b>44%</b> de las desapariciones corresponden a edades entre <span style=background-color:#bf5b17> 13 y 17 </span> años."
@@ -65,6 +69,7 @@
     },
     {
       "type": "bar-chart",
+      "title": "Causas de la desaparición de personas",
       "value": {
         "steps": [
           "De las 6952 personas reportadas, <span style=background-color:#12B607cc>6240</span> fueron halladas y <b> 712 </b> personas aún permanecen <span style=background-color:#EB0F51CC> Desaparecidas </span>. ",
@@ -79,17 +84,20 @@
     },
     {
       "type": "choropleth-map",
+      "title": "Cantones con mayor desaparición de personas",
       "value": {
         "steps": [
+          "Lás áreas más <b>oscuras </b> tienen más desapariciones.",
           "Los cantones con mayores desapariciones son <b>Quito</b> y <b>Guayaquil</b>."
         ]
       }
     },
     {
       "type": "choropleth-map",
+      "title": "Desaparición de personas según su densidad poblacional",
       "value": {
         "steps": [
-          "... pero considerando el tamaño de la población, los cantones con mayores desapariciones son <b>Centinela del Cóndor</b> y <b>El Pangui</b> con <span style=background-color:#ff7a33> 14 </span>  y  <span style=background-color:#ff7a33> 12 </span> personas cada 10,000 habitantes; comparado con Quito que tiene casi 6.",
+          "... pero considerando el tamaño de la población, los cantones con mayores desapariciones son <b>Centinela del Cóndor</b> y <b>El Pangui</b> con 14 y  12 personas cada 10,000 habitantes; por encima del doble comparado con Quito que tiene casi 6.",
           "Este ratio es importante para dimensionar los recursos y combatir este problema social por zonas."
         ]
       }

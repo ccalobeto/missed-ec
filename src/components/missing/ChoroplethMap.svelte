@@ -18,6 +18,7 @@
 
 	export let steps;
 	export let index;
+	export let title;
 
 	let data;
 	let value;
@@ -63,6 +64,7 @@
 
 <div id="choropleth-chart">
 	<div class="chart-container">
+		<h5 class="chart-title">{title}</h5>
 		<LayerCake
 			data={geojson}
 			z={(d) => dataLookup.get(d[mapJoinKey])[colorKey]}

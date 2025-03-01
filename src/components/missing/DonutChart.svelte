@@ -12,6 +12,8 @@
 
 	export let steps;
 	export let index;
+	export let title;
+
 	let value;
 	let data;
 	let colors;
@@ -38,6 +40,7 @@
 
 <div id="donut-chart">
 	<div class="chart-container">
+		<h5 class="chart-title">{title}</h5>
 		<LayerCake
 			padding={{ top: 30, right: 0, bottom: 7, left: 0 }}
 			x={xKey}

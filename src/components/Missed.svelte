@@ -15,15 +15,18 @@
 			{/if}
 			{#if item.type === "donut-chart"}
 				{@const steps = item.value.steps}
-				<DonutChart {steps} {index} />
+				{@const title = item.title}
+				<DonutChart {steps} {index} {title} />
 			{/if}
 			{#if item.type === "bar-chart"}
 				{@const steps = item.value.steps}
-				<BarChart {steps} {index} />
+				{@const title = item.title}
+				<BarChart {steps} {index} {title} />
 			{/if}
 			{#if item.type === "choropleth-map"}
 				{@const steps = item.value.steps}
-				<ChoroplethMap {steps} {index} />
+				{@const title = item.title}
+				<ChoroplethMap {steps} {index} {title} />
 			{/if}
 		</div>
 	{/each}
@@ -38,6 +41,9 @@
 		position: relative;
 	}
 
+	:global(.chart-title) {
+		display: inline;
+	}
 	:global(.text-blocks) {
 		border: 2px solid black;
 		font-family: var(--serif);
@@ -52,6 +58,7 @@
 		height: 80vh;
 		position: sticky;
 		top: 4em;
+		justify-items: center;
 	}
 	:global(.scrolly-text-container) {
 		border: 2px dashed green;
