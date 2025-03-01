@@ -91,3 +91,21 @@ export const indexOfCopyToKpiAssociation = (copyBodyType, keyChart) => {
   }
 
 }
+
+export const twoLevelflatten = (body) => {
+  // flattens copy.body
+  return body.flatMap((obj, i) => {
+    if (obj.value.steps)
+      return obj.value.steps.flatMap((step) => ({
+        type: obj.type,
+        index: i,
+        step: step
+      }));
+    else
+      return {
+        type: obj.type,
+        index: i,
+        step: obj.value
+      };
+  })
+}
