@@ -21,9 +21,6 @@
 	let value;
 	let colors;
 
-	const currentValue = "2024";
-	const currentColor = "#339900";
-	const defaultColor = "#00bbff";
 	const keyChart = "bar";
 	const copyBodyType = "bar-chart";
 
@@ -38,11 +35,11 @@
 
 	$: {
 		data = dataLookupForBarChart.get(indexToKpi[index]);
-		if (index == 6) {
-			colors = Array.from({ length: data.length }, () => "#c994c7");
-		} else if (index == 7) {
-			colors = Array.from({ length: data.length }, () => "#df65b0");
-		} else if (index == 10) {
+		if (index == 5) {
+			colors = Array.from({ length: data.length }, () => "#EB0F51f5");
+		} else if (index == 6) {
+			colors = Array.from({ length: data.length }, () => "#EB0F51CC");
+		} else if (index == 9) {
 			colors = [
 				"#7fc97f",
 				"#beaed4",
@@ -52,49 +49,52 @@
 				"#f0027f",
 				"#bf5b17"
 			];
-		} else if (index == 11) {
+		} else if (index == 10) {
 			colors = [
-				"#c994c7",
-				"#df65b0",
-				"#e7298a",
-				"#ce1256",
-				"#91003f",
-				"#d4b9da",
-				"#f1eef6"
+				"#12B607cc",
+				"#12B607cc",
+				"#12B607cc",
+				"#12B607cc",
+				"#12B607cc",
+				"#12B607cc",
+				"#12B607cc",
+				"#12B607cc",
+				"#12B607cc",
+				"#EB0F51CC",
+				"#12B607cc",
+				"#12B607cc"
 			];
 		}
-		if (index != 6 && index != 7 && index != 10) {
+		if (index != 5 && index != 6 && index != 9) {
 			data = data.sort((a, b) => b.value - a.value);
 		}
 	}
 </script>
 
-<div id="bar-chart">
+<div class="charter">
 	<div class="chart-container">
 		<!-- {console.log("BarChart: value => ", value)} -->
-		<div class="chart-container">
-			<LayerCake
-				padding={{ bottom: 20, left: 250 }}
-				x={xKeyCat}
-				y={yKeyCat}
-				z={zKeyCat}
-				yScale={scaleBand().paddingInner(0.05)}
-				xDomain={[0, null]}
-				yDomainSort={false}
-				zRange={colors}
-				zScale={scaleOrdinal()}
-				{data}
-			>
-				<Svg>
-					<AxisX />
-					<AxisY tickMarks gridlines={false} />
-					<Bar />
-				</Svg>
-				<Html>
-					<Labels />
-				</Html>
-			</LayerCake>
-		</div>
+		<LayerCake
+			padding={{ bottom: 20, left: 250 }}
+			x={xKeyCat}
+			y={yKeyCat}
+			z={zKeyCat}
+			yScale={scaleBand().paddingInner(0.05)}
+			xDomain={[0, null]}
+			yDomainSort={false}
+			zRange={colors}
+			zScale={scaleOrdinal()}
+			{data}
+		>
+			<Svg>
+				<AxisX />
+				<AxisY tickMarks gridlines={false} />
+				<Bar />
+			</Svg>
+			<Html>
+				<Labels />
+			</Html>
+		</LayerCake>
 	</div>
 	<div class="spacer"></div>
 	<div class="scrolly-text-container">
@@ -110,40 +110,10 @@
 </div>
 
 <style>
-	.chart-container {
-		width: 80%;
-		height: 250px;
-		display: block;
-		margin-left: auto;
-		margin-right: auto;
-		position: sticky;
-		top: 4em;
-	}
-
-	#bar-chart {
-		padding-top: 30px;
-		padding-bottom: 30px;
-	}
-
-	.scrolly-text-container {
-		position: relative;
-		z-index: 5;
-	}
-	.spacer {
-		height: 75vh;
-	}
-	.step {
-		text-align: left;
-		width: 350px;
-		margin: 60vh 0;
-		padding: 0 0 0 1.5rem;
-		pointer-events: none;
-	}
-	.step p {
-		font-family: var(--serif);
-		padding: 0 2rem 0 0;
-		font-size: var(--32px);
-		pointer-events: auto;
-		position: relative;
+	@media (max-width: 600px) {
+		.chart-container {
+			margin-left: -40%;
+			width: 140%;
+		}
 	}
 </style>
