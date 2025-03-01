@@ -21,9 +21,6 @@
 	let value;
 	let colors;
 
-	const currentValue = "2024";
-	const currentColor = "#339900";
-	const defaultColor = "#00bbff";
 	const keyChart = "bar";
 	const copyBodyType = "bar-chart";
 
@@ -38,11 +35,11 @@
 
 	$: {
 		data = dataLookupForBarChart.get(indexToKpi[index]);
-		if (index == 6) {
-			colors = Array.from({ length: data.length }, () => "#c994c7");
-		} else if (index == 7) {
-			colors = Array.from({ length: data.length }, () => "#df65b0");
-		} else if (index == 10) {
+		if (index == 5) {
+			colors = Array.from({ length: data.length }, () => "#EB0F51f5");
+		} else if (index == 6) {
+			colors = Array.from({ length: data.length }, () => "#EB0F51CC");
+		} else if (index == 9) {
 			colors = [
 				"#7fc97f",
 				"#beaed4",
@@ -52,18 +49,23 @@
 				"#f0027f",
 				"#bf5b17"
 			];
-		} else if (index == 11) {
+		} else if (index == 10) {
 			colors = [
-				"#c994c7",
-				"#df65b0",
-				"#e7298a",
-				"#ce1256",
-				"#91003f",
-				"#d4b9da",
-				"#f1eef6"
+				"#12B607cc",
+				"#12B607cc",
+				"#12B607cc",
+				"#12B607cc",
+				"#12B607cc",
+				"#12B607cc",
+				"#12B607cc",
+				"#12B607cc",
+				"#12B607cc",
+				"#EB0F51CC",
+				"#12B607cc",
+				"#12B607cc"
 			];
 		}
-		if (index != 6 && index != 7 && index != 10) {
+		if (index != 5 && index != 6 && index != 9) {
 			data = data.sort((a, b) => b.value - a.value);
 		}
 	}
