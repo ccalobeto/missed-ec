@@ -23,6 +23,11 @@
 
 	const keyChart = "bar";
 	const copyBodyType = "bar-chart";
+	const renameValues = {
+		"CERRADO POR FISCALIA / DELITO REFORMULADO": "CERRADO POR FISCALIA",
+		"EXTRAVIADO - DISCAPACIDAD / ENFERMEDADES / TRASTORNOS":
+			"EXTRAVIADO - DISCAPACIDAD"
+	};
 
 	// set x and y, keys
 	const xKeyCat = "value";
@@ -64,6 +69,12 @@
 				"#12B607cc",
 				"#12B607cc"
 			];
+			data = data.map((obj) => {
+				return Object.keys(obj).reduce((acc, key) => {
+					acc[key] = renameValues[obj[key]] || obj[key];
+					return acc;
+				}, {});
+			});
 		}
 		if (index != 5 && index != 6 && index != 9) {
 			data = data.sort((a, b) => b.value - a.value);
