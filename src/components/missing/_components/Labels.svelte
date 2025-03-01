@@ -19,7 +19,7 @@
 	 */
 
 	const barHeight = $yScale.bandwidth();
-	console.log("barHeight => ", barHeight);
+
 	$: left = (values) => $xGet(values) / Math.max(...$xRange);
 	$: top = (values) => ($yGet(values) + barHeight / 2) / Math.max(...$yRange);
 </script>

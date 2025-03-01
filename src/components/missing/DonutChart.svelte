@@ -56,7 +56,6 @@
 	</div>
 	<div class="spacer"></div>
 	<div class="scrolly-text-container">
-		{console.log("DonutChart: scrollyValue => ", value)}
 		<Scrolly bind:value>
 			{#each steps as step, i}
 				<div class="step" class:active={value === i}>
