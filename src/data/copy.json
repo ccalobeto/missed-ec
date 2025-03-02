@@ -87,7 +87,7 @@
       "title": "Cantones con mayor desaparición de personas",
       "value": {
         "steps": [
-          "Las áreas más <b>oscuras </b> tienen más desapariciones. Posiciónese sobre el área para ver los datos.",
+          "Las áreas más <b>oscuras </b> tienen más desapariciones. <em>Posiciónese</em> sobre el área para ver los datos.",
           "Los cantones con mayores desapariciones son <b>Quito</b> y <b>Guayaquil</b>."
         ]
       }
@@ -98,7 +98,7 @@
       "value": {
         "steps": [
           "... pero considerando el tamaño de la población, <b>Centinela del Cóndor</b> y <b>El Pangui</b> tienen más desapariciones con 14 y 12 personas cada 10,000 habitantes. El doble comparado con Quito.",
-          "Este ratio es importante para dimensionar los recursos y combatir este problema social por zonas."
+          "Este ratio es importante para <em>dimensionar</em> los recursos y combatir este problema social por zonas."
         ]
       }
     },

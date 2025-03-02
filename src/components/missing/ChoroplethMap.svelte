@@ -117,6 +117,6 @@
 
 <style>
 	.chart-container {
-		z-index: 2;
+		z-index: 5;
 	}
 </style>
