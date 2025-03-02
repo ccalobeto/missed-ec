@@ -44,6 +44,22 @@ in `svelte.congif.js`.
 
 - Follow the commits as a project template of what to do. With this you can manage scrollytelling and charts.
 
+## Deployment
+Build
+```js
+npm run build
+```
+check local production 
+```js
+npm run preview
+```
+deploy to github 
+```js
+make github
+```
+Then Go to github **Settings/Page** and choose deploy from branch **main/docs**.
+
+
 
 
 
