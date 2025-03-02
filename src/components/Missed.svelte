@@ -34,6 +34,7 @@
 
 <style>
 	.charts-container {
+		/* border: 2px solid red; */
 		position: relative;
 		display: flex;
 		flex-direction: column;
@@ -47,17 +48,21 @@
 	}
 
 	:global(.chart-container) {
+		/* border: 2px dashed blue; */
 		position: sticky;
 		transition: all 1s;
 		height: 80vh;
 		top: 4em;
 	}
 	:global(.scrolly-text-container) {
+		border: 1px dashed white; /*not smart but works!*/
 		width: clamp(300px, 80vw, 1200px);
+		position: relative;
+		z-index: 2;
 	}
-	:global(.spacer) {
-		height: 20vh;
-	}
+	/* :global(.spacer) {
+		height: 70vh;
+	} */
 	:global(.step) {
 		border: 2px solid var(--color-gray-300);
 		text-align: left;
