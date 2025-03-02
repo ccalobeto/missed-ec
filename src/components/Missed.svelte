@@ -34,44 +34,42 @@
 
 <style>
 	.charts-container {
-		/* border: 2px solid red; */
+		border: 2px solid red;
 		display: flex;
+		position: relative;
 		flex-direction: column;
 		align-items: center;
-		position: relative;
-	}
-
-	:global(.chart-title) {
-		display: inline;
 	}
 	:global(.text-blocks) {
 		/* border: 2px solid black; */
 		font-family: var(--serif);
 		font-size: clamp(1rem, 2vw + 0.5rem, 2rem);
 		width: clamp(300px, 80vw, 1200px);
-		padding: min(1em, 5%);
+		padding: min(0.2em, 5%);
 	}
 
 	:global(.chart-container) {
-		/* border: 2px dashed blue; */
-		width: clamp(300px, 80vw, 1200px);
-		height: 80vh;
+		border: 2px dashed blue;
 		position: sticky;
+		display: flex;
+		flex-direction: column;
+		width: clamp(300px, 80vw, 1200px);
+		transition: all 1s;
+		height: 80vh;
 		top: 4em;
-		justify-items: center;
 	}
 	:global(.scrolly-text-container) {
-		/* border: 2px dashed green; */
+		border: 2px dashed green;
 		position: relative;
 	}
 	:global(.spacer) {
-		/* border: 2px dashed orange; */
-		height: 60vh;
+		border: 2px dashed orange;
+		height: 40vh;
 	}
 	:global(.step) {
 		border: 2px solid var(--color-gray-300);
 		text-align: left;
-		width: 350px;
+		width: min(400px, 80vw);
 		margin: 70vh 0;
 		padding: 0 0 0 1.5rem;
 		pointer-events: none;
@@ -81,5 +79,11 @@
 		padding: 0 2rem 0 0;
 		font-size: clamp(0.5rem, 2vw + 0.5rem, 2rem);
 		pointer-events: auto;
+	}
+
+	:global(.chart-title) {
+		display: none;
+		font-size: clamp(1rem, 1.5vw + 0.5rem, 2rem);
+		background-color: aqua;
 	}
 </style>

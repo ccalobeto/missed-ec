@@ -19,7 +19,6 @@
 
 <!-- <Footer /> -->
 <div class="footer">
-	<span class="notes">{@html copy.notes}</span>
 	<p class="made-with">{@html copy.footer}</p>
 </div>
 
@@ -43,10 +42,10 @@
 	}
 
 	section p {
-		font-size: var(--14px);
+		font-size: clamp(1rem, 2vw + 0.5rem, 2rem);
 		font-style: italic;
 		text-align: center;
-		max-width: 500px;
+		max-width: clamp(300px, 80vw, 1200px);
 		margin-left: auto;
 		margin-right: auto;
 	}
@@ -69,17 +68,10 @@
 		text-align: center;
 	}
 
-	.notes {
-		font-family: var(--mono, --font-body);
-		font-style: normal;
-		font-size: var(--18px);
-	}
 	.made-with {
 		font-family: var(--mono, --font-body);
 		font-style: normal;
-		font-size: var(--16px);
-	}
-	.made-with.links span a {
-		background-color: cyan;
+		font-size: clamp(0.5rem, 1.2vw + 0.5rem, 1.8rem);
+		margin: 30px;
 	}
 </style>

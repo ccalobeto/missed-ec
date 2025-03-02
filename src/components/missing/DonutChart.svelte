@@ -65,10 +65,3 @@
 		</Scrolly>
 	</div>
 </div>
-
-<style>
-	#donut-chart {
-		padding-top: 30px;
-		padding-bottom: 30px;
-	}
-</style>
