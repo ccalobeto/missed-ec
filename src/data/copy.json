@@ -1,10 +1,10 @@
 {
   "title": "Perfil de las personas desaparecidas en el Ecuador",
-  "description": "Usando datos abiertos y potentes visualizaciones vamos a explorar una manera de usarlos para entender el perfil de las personas desaparecidas en el Ecuador.",
+  "description": "Explorando los datos abiertos a través de potentes visualizaciones para encontrar el perfil de las personas desaparecidas en el Ecuador.",
   "url": "https://github.com/ccalobeto/missed-ec",
   "keywords": "Ecuador, crime, missing people, human rights",
   "byline": "Elaborado por <a href=https://www.carlosleon.dev target=_blank>Carlos León</a>",
-  "footer": "Un gráfico hecho en <b>svelte </b> y <b>d3.js</b>. <span> <a href=https://www.carlosleon.dev/blog/missed-in-ec target=_blank>Blog post</a> | <a href=https://github.com/ccalobeto/missed-ec target=_blank>GitHub</a> </span>.",
+  "footer": "Un gráfico hecho en <b>svelte </b> y <b>d3.js</b>. <span class=links> <a href=https://www.carlosleon.dev/blog/missed-in-ec target=_blank>Blog post</a> | <a href=https://github.com/ccalobeto/missed-ec target=_blank>GitHub</a> </span>.",
   "body": [
     {
       "type": "text",
@@ -32,7 +32,7 @@
       "value": {
         "steps": [
           "En el periodo acumulado <b>2017-2025 </b>, los casos reportados de personas desaparecidas fueron de <b> 68,516 </b>.",
-          "Los casos reportados han ido disminuyendo. Comparando 2024 vs 2017 hubo una disminución del <span style=background-color:#EB0F51CC> 34% </span>."
+          "Los casos reportados han disminuido. Comparando 2024 vs 2017 hubo una disminución del <span style=background-color:#EB0F51CC> 34% </span>."
         ]
       }
     },
@@ -87,7 +87,7 @@
       "title": "Cantones con mayor desaparición de personas",
       "value": {
         "steps": [
-          "Lás áreas más <b>oscuras </b> tienen más desapariciones.",
+          "Las áreas más <b>oscuras </b> tienen más desapariciones. Posiciónese sobre el área para ver los datos.",
           "Los cantones con mayores desapariciones son <b>Quito</b> y <b>Guayaquil</b>."
         ]
       }
@@ -97,18 +97,18 @@
       "title": "Desaparición de personas según su densidad poblacional",
       "value": {
         "steps": [
-          "... pero considerando el tamaño de la población, los cantones con mayores desapariciones son <b>Centinela del Cóndor</b> y <b>El Pangui</b> con 14 y  12 personas cada 10,000 habitantes; por encima del doble comparado con Quito que tiene casi 6.",
+          "... pero considerando el tamaño de la población, <b>Centinela del Cóndor</b> y <b>El Pangui</b> tienen más desapariciones con 14 y 12 personas cada 10,000 habitantes. El doble comparado con Quito.",
           "Este ratio es importante para dimensionar los recursos y combatir este problema social por zonas."
         ]
       }
     },
     {
       "type": "text",
-      "value": "El presente análisis nos lleva a la conclusión que el perfil de las personas que más desaparecen son <span style=background-color:#EB0F51f5;color:white>mujeres adolescentes con problemas personales.</span>"
+      "value": "El presente análisis nos lleva a la conclusión que el perfil de las personas que más desaparecen son <span style=background-color:#EB0F51f5;color:white>mujeres adolescentes con problemas personales</span>; ocurridos de forma circunstancial o debido a una relación afectiva"
     },
     {
       "type": "text",
-      "value": "Anexo. Un dato adicional que nos ayudarán a comprender mejor el perfil de las personas desaparecidas es la <b> raza</b>."
+      "value": "Finalmente recolectar datos como la <b> raza</b> nos ayudarán a comprender mejor el perfil de las personas desaparecidas."
     }
   ]
 }

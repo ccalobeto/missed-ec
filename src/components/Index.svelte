@@ -18,9 +18,10 @@
 </article>
 
 <!-- <Footer /> -->
-<section>
-	<p class="footer">{@html copy.footer}</p>
-</section>
+<div class="footer">
+	<span class="notes">{@html copy.notes}</span>
+	<p class="made-with">{@html copy.footer}</p>
+</div>
 
 <style>
 	article {
@@ -60,9 +61,25 @@
 		font-size: var(--16px);
 		font-style: normal;
 	}
+
 	.footer {
+		padding: 5px;
+		margin: 5px;
+		box-sizing: border-box;
+		text-align: center;
+	}
+
+	.notes {
+		font-family: var(--mono, --font-body);
+		font-style: normal;
+		font-size: var(--18px);
+	}
+	.made-with {
 		font-family: var(--mono, --font-body);
 		font-style: normal;
 		font-size: var(--16px);
+	}
+	.made-with.links span a {
+		background-color: cyan;
 	}
 </style>
