@@ -41,6 +41,7 @@
 		align-items: center;
 	}
 	:global(.text-blocks) {
+		/* border: 2px solid black; */
 		font-family: var(--serif);
 		font-size: clamp(1rem, 2vw + 0.5rem, 2rem);
 		width: clamp(300px, 80vw, 1200px);
@@ -55,7 +56,7 @@
 		top: 4em;
 	}
 	:global(.scrolly-text-container) {
-		border: 1px dashed white; /*not smart but works!*/
+		border: 1px dashed white; /*not elegant but works!*/
 		width: clamp(300px, 80vw, 1200px);
 		position: relative;
 		z-index: 2;
@@ -81,6 +82,5 @@
 	:global(.chart-title) {
 		display: none;
 		font-size: clamp(1rem, 1.5vw + 0.5rem, 2rem);
-		background-color: aqua;
 	}
 </style>
