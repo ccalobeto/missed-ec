@@ -34,7 +34,7 @@
 
 <style>
 	.charts-container {
-		border: 2px solid red;
+		/* border: 2px solid red; */
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -45,7 +45,7 @@
 		display: inline;
 	}
 	:global(.text-blocks) {
-		border: 2px solid black;
+		/* border: 2px solid black; */
 		font-family: var(--serif);
 		font-size: clamp(1rem, 2vw + 0.5rem, 2rem);
 		width: clamp(300px, 80vw, 1200px);
@@ -53,7 +53,7 @@
 	}
 
 	:global(.chart-container) {
-		border: 2px dashed blue;
+		/* border: 2px dashed blue; */
 		width: clamp(300px, 80vw, 1200px);
 		height: 80vh;
 		position: sticky;
@@ -61,11 +61,11 @@
 		justify-items: center;
 	}
 	:global(.scrolly-text-container) {
-		border: 2px dashed green;
+		/* border: 2px dashed green; */
 		position: relative;
 	}
 	:global(.spacer) {
-		border: 2px dashed orange;
+		/* border: 2px dashed orange; */
 		height: 60vh;
 	}
 	:global(.step) {

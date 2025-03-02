@@ -29,7 +29,7 @@
 		flex-direction: column;
 	}
 	section {
-		border: 2px solid var(--color-gray-300);
+		/* border: 2px solid var(--color-gray-300); */
 		padding: 5px;
 		margin: 5px;
 		box-sizing: border-box;
