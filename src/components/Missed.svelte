@@ -34,14 +34,12 @@
 
 <style>
 	.charts-container {
-		border: 2px solid red;
-		display: flex;
 		position: relative;
+		display: flex;
 		flex-direction: column;
 		align-items: center;
 	}
 	:global(.text-blocks) {
-		/* border: 2px solid black; */
 		font-family: var(--serif);
 		font-size: clamp(1rem, 2vw + 0.5rem, 2rem);
 		width: clamp(300px, 80vw, 1200px);
@@ -49,33 +47,27 @@
 	}
 
 	:global(.chart-container) {
-		border: 2px dashed blue;
 		position: sticky;
-		display: flex;
-		flex-direction: column;
-		width: clamp(300px, 80vw, 1200px);
 		transition: all 1s;
 		height: 80vh;
 		top: 4em;
 	}
 	:global(.scrolly-text-container) {
-		border: 2px dashed green;
-		position: relative;
+		width: clamp(300px, 80vw, 1200px);
 	}
 	:global(.spacer) {
-		border: 2px dashed orange;
-		height: 40vh;
+		height: 20vh;
 	}
 	:global(.step) {
 		border: 2px solid var(--color-gray-300);
 		text-align: left;
-		width: min(400px, 80vw);
 		margin: 70vh 0;
 		padding: 0 0 0 1.5rem;
 		pointer-events: none;
 	}
 	:global(.step p) {
 		font-family: var(--serif);
+		width: min(400px, 80vw);
 		padding: 0 2rem 0 0;
 		font-size: clamp(0.5rem, 2vw + 0.5rem, 2rem);
 		pointer-events: auto;
