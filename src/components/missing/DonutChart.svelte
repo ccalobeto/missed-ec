@@ -1,6 +1,4 @@
 <script>
-	import { quantize, interpolatePlasma } from "d3";
-
 	import { LayerCake, Svg } from "layercake";
 	import Pie from "$components/missing/_components/Pie.svelte";
 	import Scrolly from "$components/helpers/Scrolly.svelte";
@@ -42,7 +40,7 @@
 	<div class="chart-container">
 		<h5 class="chart-title">{title}</h5>
 		<LayerCake
-			padding={{ top: 30, right: 0, bottom: 7, left: 0 }}
+			padding={{ bottom: -20 }}
 			x={xKey}
 			y={yKey}
 			xDomain={[0, 100]}

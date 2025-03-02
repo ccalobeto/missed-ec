@@ -1,5 +1,6 @@
 <script>
 	import { scaleBand, scaleOrdinal } from "d3-scale";
+	import viewport from "$runes/viewport.svelte.js";
 
 	import { Html, LayerCake, Svg } from "layercake";
 	import AxisY from "$components/missing/_components/AxisY.svelte";
@@ -38,6 +39,8 @@
 	// get cooked data which is a set
 	const indexToKpi = indexOfCopyToKpiAssociation(copyBodyType, keyChart);
 	const dataLookupForBarChart = dataLookupForCharts(keyChart);
+
+	$: leftPadding = 0.3 * $viewport.height;
 
 	$: {
 		data = dataLookupForBarChart.get(indexToKpi[index]);
@@ -88,7 +91,7 @@
 		<h5 class="chart-title">{title}</h5>
 		<!-- {console.log("BarChart: value => ", value)} -->
 		<LayerCake
-			padding={{ bottom: 20, left: 250 }}
+			padding={{ top: 5, bottom: 5, left: leftPadding, right: 5 }}
 			x={xKeyCat}
 			y={yKeyCat}
 			z={zKeyCat}
@@ -98,6 +101,7 @@
 			zRange={colors}
 			zScale={scaleOrdinal()}
 			{data}
+			xNice={true}
 		>
 			<Svg>
 				<AxisX />
@@ -121,12 +125,3 @@
 		</Scrolly>
 	</div>
 </div>
-
-<style>
-	@media (max-width: 600px) {
-		.chart-container {
-			margin-left: -40%;
-			width: 140%;
-		}
-	}
-</style>
